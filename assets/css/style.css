@@ -1,9 +1,50 @@
-
-
-body {
+body {    
+    padding: 0;
+    margin: 0;
     background: url("../images/gradient-hex.jpg")no-repeat center center fixed;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+}
+
+.navbar {
+    height: 70vw;
+}
+
+.nav img {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.nav ul {
+    position: fixed;
+    right: 0;
+    top: 15px;
+}
+
+
+.site-logo {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40vw;
+}
+
+.search input {
+    width: 60vw;
+}
+
+.search {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
