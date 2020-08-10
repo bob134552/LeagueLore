@@ -9,11 +9,11 @@ body {
 }
 
 .navbar {
-    height: 70vw;
+    height: 30vw;
 }
 
 .nav img {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
 }
@@ -27,7 +27,7 @@ body {
 }
 
 .nav ul {
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 15px;
 }
@@ -41,10 +41,21 @@ body {
 
 .search input {
     width: 60vw;
+
 }
 
 .search {
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 15px;
+}
+
+#champ-grid {
+    margin-left: calc(6em - 2em);
+    margin-right: calc(5em - 2em);
+}
+
+#champ-grid img {
+    margin: 4px 4px;
 }
