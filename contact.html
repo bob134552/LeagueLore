@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <title>League Lore - Contact Us</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<title>League Lore - Contact Us</title>
 </head>
+
 <body>
-<section class="container-fluid">
-	<div class="nav row">
-		<div class="xs-12">
-			<img src="#" alt="Logo" class="logo">
-			<ul>
-				<li>
-					<a href="index.html">Home</a>
-				</li>
-				<li>
-					<a href="contact.html">Contact Us</a>
-				</li>
-			</ul>
+	<section class="container-fluid navbar">
+		<div class="nav row">
+			<div class="xs-12">
+				<img src="#" alt="Logo" class="logo">
+				<ul>
+					<li>
+						<a href="index.html">Home</a>
+					</li>
+					<li>
+						<a href="contact.html">Contact Us</a>
+					</li>
+				</ul>
+			</div>
 		</div>
-	</div>
-    <div class="site-logo"><img src="#" alt="site-logo"></div>
-</section>
+		<div class="site-logo"><img src="#" alt="site-logo"></div>
+	</section>
+
+
+	<section class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-contact">
+					<form onsubmit="#" method="POST">
+						<input type="text" name="name" class="form-input" id="fullname" placeholder="Name" required="">
+						<input type="email" name="emailaddress" class="form-input" id="emailaddress" placeholder="Email" required="">
+						<textarea name="projectsummary" id="projectsummary" rows="5" class="form-input" placeholder="Write your ideas." required=""></textarea>
+						<button type="submit" class="btn btn-submit center-block">Send us your ideas</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
 </body>
 </html>
