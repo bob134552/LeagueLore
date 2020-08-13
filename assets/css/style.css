@@ -107,3 +107,18 @@ textarea.form-input {
     border-color: #007bff;
     margin-top: 5px;
 }
+
+.item.show{
+	display: flex;
+	animation: show .5s ease;
+}
+
+.item.hide{
+	display: none;
+}
+
+.item {
+    float: left;
+    width: 15vw;
+    position: relative;
+}
