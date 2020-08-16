@@ -51,11 +51,6 @@ body {
     padding-bottom: 15px;
 }
 
-#champ-grid {
-    margin-left: calc(6em - 2em);
-    margin-right: calc(5em - 2em);
-}
-
 #champ-grid img {
     margin: 4px 4px;
     flex-wrap: wrap;
@@ -120,4 +115,9 @@ textarea.form-input {
 	border-color: gray;
 	color:gray;
 	pointer-events: none;
+}
+
+.container-grid {
+    width: 90vw;
+    margin: auto;
 }

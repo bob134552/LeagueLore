@@ -14,73 +14,86 @@ function getData(cb) {
   };
 }
 
-function writeToDocument(champData) {
+function buildGrid(champData) {
   let myArray = Array.from(Object.values(champData.data));
   let el = " ";
-  for (let i = 0; i < myArray.length; i++) {
-    el += `<div class="item"><img id="${myArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${myArray[i].id}.png" alt="${myArray[i].id}"></div>`;
-    document.getElementById("champ-grid").innerHTML = el;
+  let galleryItems = document.querySelector(".champ-grid").children;
+  let prev = document.querySelector(".prev");
+  let next = document.querySelector(".next");
+  let page = document.querySelector(".page-num");
+  let maxItem;
+  let pagination;
+  let index = 1;
+  let windowSize = window.matchMedia("(max-width: 700px)");
+  function setMaxItem(windowSize) {
+    if (windowSize.matches) {
+      maxItem = 20;
+      pagination = Math.ceil(myArray.length / maxItem);
+    } else {
+      maxItem = myArray.length;
+      pagination = Math.ceil(myArray.length / maxItem);
+    }
   }
-  
-}
 
-const galleryItems = document.querySelector(".champ-grid").children;
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
-const page = document.querySelector(".page-num");
-const maxItem = 20;
-let index = 1;
+  setMaxItem(windowSize);
+  windowSize.addListener(setMaxItem);
 
-console.log(galleryItems.length);
-let pagination = Math.ceil(galleryItems.length / maxItem);
+  setInterval(function () {
+    console.log(pagination);
+  }, 100);
 
-prev.addEventListener("click",function() {
+  for (let i = 0; i < myArray.length; i++) {
+    if (i < maxItem) {
+      el += `<div class="item show"><img id="${myArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${myArray[i].id}.png" alt="${myArray[i].id}"></div>`;
+      document.getElementById("champ-grid").innerHTML = el;
+    } else {
+      el += `<div class="item hide"><img id="${myArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${myArray[i].id}.png" alt="${myArray[i].id}"></div>`;
+      document.getElementById("champ-grid").innerHTML = el;
+    }
+  }
+  prev.addEventListener("click", function () {
     index--;
     check();
     showItems();
-})
+  });
 
-next.addEventListener("click",function(){
-  	index++;
-  	check();
-    showItems();  
-})
+  next.addEventListener("click", function () {
+    index++;
+    check();
+    showItems();
+  });
 
-function check(){
-  	 if(index == pagination) {
-  	 	next.classList.add("disabled");
-  	 }
-  	 else{
-  	   next.classList.remove("disabled");	
-  	 }
+  function check() {
+    if (index == pagination) {
+      next.classList.add("disabled");
+    } else {
+      next.classList.remove("disabled");
+    }
 
-  	 if(index==1){
-  	 	prev.classList.add("disabled");
-  	 }
-  	 else{
-  	   prev.classList.remove("disabled");	
-  	 }
+    if (index == 1) {
+      prev.classList.add("disabled");
+    } else {
+      prev.classList.remove("disabled");
+    }
+  }
+
+  function showItems() {
+    for (let i = 0; i < myArray.length; i++) {
+      galleryItems[i].classList.remove("show");
+      galleryItems[i].classList.add("hide");
+
+      if (i >= index * maxItem - maxItem && i < index * maxItem) {
+        galleryItems[i].classList.remove("hide");
+        galleryItems[i].classList.add("show");
+      }
+      page.innerHTML = index;
+    }
+  }
+
+  window.onload = function () {
+    showItems();
+    check();
+  };
 }
 
-function showItems() {
-  	 for(let i=0;i<galleryItems.length; i++){
-  	 	galleryItems[i].classList.remove("show");
-  	 	galleryItems[i].classList.add("hide");
-
-
-  	    if(i>=(index*maxItem)-maxItem && i<index*maxItem){
-          galleryItems[i].classList.remove("hide");
-          galleryItems[i].classList.add("show");
-  	    }
-  	    page.innerHTML=index;
-  	 }
-
-  	 	
-}
-
-window.onload = function(){
-  	showItems();
-  	check();
-};
-
-getData(writeToDocument);
+getData(buildGrid);
