@@ -6,6 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="assets/css/style.css" />
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+	<script type="text/javascript">
+		(function(){
+      emailjs.init("user_f8CwBmyJmtHsNlSmabfrz");
+    })();
+	</script>
 	<title>League Lore - Contact Us</title>
 </head>
 
@@ -31,16 +37,18 @@
 	<section class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="form-contact">
-					<form onsubmit="#" method="POST">
-						<input type="text" name="name" class="form-input" id="fullname" placeholder="Name" required="">
-						<input type="email" name="emailaddress" class="form-input" id="emailaddress" placeholder="Email" required="">
-						<textarea name="projectsummary" id="projectsummary" rows="5" class="form-input" placeholder="Write your ideas." required=""></textarea>
+				<div class="form-idea">
+					<form onsubmit="return sendMail(this);">
+						<input type="text" name="name" class="form-input" id="fullname" placeholder="Name" required>
+						<input type="email" name="emailaddress" class="form-input" id="emailaddress" placeholder="Email" required>
+						<textarea name="idea" id="idea" rows="5" class="form-input" placeholder="Write your ideas." required></textarea>
 						<button type="submit" class="btn btn-submit center-block">Send us your ideas</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</section>
+    <script src="assets/js/sendEmail.js"></script>
 </body>
+
 </html>
