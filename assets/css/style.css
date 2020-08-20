@@ -45,16 +45,24 @@ body {
 }
 
 .search {
-    position: relative;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 15px;
 }
 
-#champ-grid img {
+.champ-grid img {
     margin: 4px 4px;
     flex-wrap: wrap;
 }
+
+.champ-grid li {
+    list-style: none;
+}
+
+.pagination-buttons {
+    margin: auto;
+}
+
 .form-idea {
     padding-top: 30px;
     min-height: 240px;
@@ -103,7 +111,7 @@ textarea.form-input {
     margin-top: 5px;
 }
 
-.item.hide{
+.hide{
 	display: none;
 }
 
@@ -120,4 +128,10 @@ textarea.form-input {
 .container-grid {
     width: 90vw;
     margin: auto;
+}
+
+@media screen and (min-width: 700px) {
+    .pagination-buttons {
+        display: none;
+    }
 }

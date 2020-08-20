@@ -44,10 +44,10 @@ function buildGrid(champData) {
 
   for (let i = 0; i < myArray.length; i++) {
     if (i < maxItem) {
-      el += `<div class="item show"><img id="${myArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${myArray[i].id}.png" alt="${myArray[i].id}"></div>`;
+      el += `<li class="item show"><img id="${myArray[i].id}" name="${myArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${myArray[i].id}.png" alt="${myArray[i].id}"></li>`;
       document.getElementById("champ-grid").innerHTML = el;
     } else {
-      el += `<div class="item hide"><img id="${myArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${myArray[i].id}.png" alt="${myArray[i].id}"></div>`;
+      el += `<li class="item hide"><img id="${myArray[i].id}" name="${myArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${myArray[i].id}.png" alt="${myArray[i].id}"></li>`;
       document.getElementById("champ-grid").innerHTML = el;
     }
   }
@@ -79,12 +79,10 @@ function buildGrid(champData) {
 
   function showItems() {
     for (let i = 0; i < myArray.length; i++) {
-      galleryItems[i].classList.remove("show");
       galleryItems[i].classList.add("hide");
 
       if (i >= index * maxItem - maxItem && i < index * maxItem) {
         galleryItems[i].classList.remove("hide");
-        galleryItems[i].classList.add("show");
       }
       page.innerHTML = index;
     }

@@ -31,16 +31,18 @@
 
 	<section class="container-fluid">
 		<div class="row">
-			<div class="search xs-12">
-				<input class="champ-search" id="champion" type="text" placeholder="Enter Champion Name">
+			<div class="search col-xs-12">
+				<input class="champ-search" id="champ-search" onkeyup="searchChamp()" type="text" placeholder="Enter Champion Name">
             </div>
 			</div>
 			<div class="row container-grid">
-				<div class="xs-12">
-					<div id="champ-grid" class="champ-grid"></div>
+				<div class="col-xs-12">
+					<div id="grid">
+                    <ul id="champ-grid" class="champ-grid"></ul>
+                    </div>
 				</div>
-				<div class="row">
-					<div class="col-12">
+				<div class="row pagination-buttons">
+					<div class="col-xs-12">
 						<div class="pagination">
 							<div class="btn btn-primary prev disabled">Previous</div>
 							<div class="page text-white bg-success"> <span class="page-num">1</span> </div>
@@ -51,9 +53,7 @@
 			</div>
 	</section>
 </body>
+<script src="assets/js/champSearch.js"></script>
 <script src="assets/js/grid.js"></script>
-<script>
-	src="https://code.jquery.com/jquery-3.5.1.js"
-</script>
 
 </html>
