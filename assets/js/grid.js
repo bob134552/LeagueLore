@@ -21,10 +21,11 @@ function buildGrid(champData) {
   let prev = document.querySelector(".prev");
   let next = document.querySelector(".next");
   let page = document.querySelector(".page-num");
-  let maxItem;
-  let pagination;
+  let maxItem, pagination;
   let index = 1;
   let windowSize = window.matchMedia("(max-width: 700px)");
+
+
   function setMaxItem(windowSize) {
     if (windowSize.matches) {
       maxItem = 20;
