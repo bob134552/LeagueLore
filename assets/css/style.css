@@ -50,13 +50,18 @@ body {
     padding-bottom: 15px;
 }
 
+.champ-grid ul {
+    display: flex;
+    flex-wrap: wrap;
+}
 .champ-grid img {
     margin: 4px 4px;
-    flex-wrap: wrap;
+    object-fit: scale-down;
 }
 
 .champ-grid li {
     list-style: none;
+    flex: 0 0 25%;
 }
 
 .pagination-buttons {

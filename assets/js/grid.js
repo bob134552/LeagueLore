@@ -30,9 +30,12 @@ function buildGrid(champData) {
     if (windowSize.matches) {
       maxItem = 20;
       pagination = Math.ceil(myArray.length / maxItem);
+      $(next).removeClass("hide");
+      $("li.item:nth-child(n+21)").addClass("hide");
     } else {
       maxItem = myArray.length;
       pagination = Math.ceil(myArray.length / maxItem);
+      $("li.item").removeClass("hide")
     }
   }
 
@@ -45,7 +48,7 @@ function buildGrid(champData) {
 
   for (let i = 0; i < myArray.length; i++) {
     if (i < maxItem) {
-      el += `<li class="item show"><img id="${myArray[i].id}" name="${myArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${myArray[i].id}.png" alt="${myArray[i].id}"></li>`;
+      el += `<li class="item show"><img onClick="return champPage(this.id);" id="${myArray[i].id}" name="${myArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${myArray[i].id}.png" alt="${myArray[i].id}"></li>`;
       document.getElementById("champ-grid").innerHTML = el;
     } else {
       el += `<li class="item hide"><img id="${myArray[i].id}" name="${myArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${myArray[i].id}.png" alt="${myArray[i].id}"></li>`;
@@ -93,6 +96,27 @@ function buildGrid(champData) {
     showItems();
     check();
   };
+
+  
 }
 
 getData(buildGrid);
+
+
+function searchChamp() {
+  let input = document.getElementById("champ-search");
+  let filter = input.value.toUpperCase();
+  let champList = document.getElementById("champ-grid");
+  let champ = champList.getElementsByTagName("li");
+  let text, image;
+
+  for (i = 0; i < champ.length; i++) {
+    image = champ[i].getElementsByTagName("img")[0];
+    text = image.name;
+    if (text.toUpperCase().startsWith(filter)) {
+      champ[i].classList.remove("hide");
+    } else {
+      champ[i].classList.add("hide");
+    }
+  }
+}
