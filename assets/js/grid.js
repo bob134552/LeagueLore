@@ -14,6 +14,7 @@ $(function () {
         type: "GET",
         url: `http://ddragon.leagueoflegends.com/cdn/${patch[0]}/data/en_GB/champion.json`,
         success: function (champData) {
+
           // Build champion icon display.
           function buildGrid() {
             let champArray = Array.from(Object.values(champData.data));
@@ -39,6 +40,7 @@ $(function () {
                 $("li.item").removeClass("hide");
               }
             }
+
             // Add listener to check window size.
             setMaxItem(windowSize);
             windowSize.addListener(setMaxItem);
@@ -46,10 +48,10 @@ $(function () {
             // Display each entry from external json
             for (let i = 0; i < champArray.length; i++) {
               if (i < maxItem) {
-                el += `<li class="item show"><img onClick="return champPage(this.id);" id="${champArray[i].id}" name="${champArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${champArray[i].id}.png" alt="${champArray[i].id}"></li>`;
+                el += `<div class="item show"><img onClick="return champPage(this.id);" id="${champArray[i].id}" name="${champArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${champArray[i].id}.png" alt="${champArray[i].id}"></div>`;
                 document.getElementById("champ-grid").innerHTML = el;
               } else {
-                el += `<li class="item hide"><img id="${champArray[i].id}" name="${champArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${champArray[i].id}.png" alt="${champArray[i].id}"></li>`;
+                el += `<div class="item hide"><img id="${champArray[i].id}" name="${champArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${champArray[i].id}.png" alt="${champArray[i].id}"></div>`;
                 document.getElementById("champ-grid").innerHTML = el;
               }
             }
@@ -81,7 +83,7 @@ $(function () {
               }
             }
 
-            //Add css class to current images being show and hide class to images being hidden
+            //Add css class to current images being shown and hide class to images being hidden
             function showItems() {
               for (let i = 0; i < champArray.length; i++) {
                 galleryItems[i].classList.add("hide");
@@ -130,7 +132,7 @@ function searchChamp() {
   let input = document.getElementById("champ-search");
   let filter = input.value.toUpperCase();
   let champList = document.getElementById("champ-grid");
-  let champ = champList.getElementsByTagName("li");
+  let champ = champList.getElementsByClassName("item");
   let text, image;
 
   for (i = 0; i < champ.length; i++) {

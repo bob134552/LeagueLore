@@ -9,10 +9,10 @@ function champPage(champId) {
         success: function (data) {
 
             let champion = data.data[champId];
-                console.log(champion);
             $(".lore-page").html(`
             <div>
             <img class="splash" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg">
+            <div>${champion.lore}</div>
             </div>
             `).fadeIn();
         },
