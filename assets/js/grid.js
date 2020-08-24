@@ -1,108 +1,131 @@
-function getData(cb) {
-  let xhr = new XMLHttpRequest();
+$(function () {
 
-  xhr.open(
-    "GET",
-    "http://ddragon.leagueoflegends.com/cdn/10.16.1/data/en_GB/champion.json"
-  );
-  xhr.send();
+    $(".lore-page").fadeOut()
+    
+  // Get current patch version.
+  $.ajax({
+    type: "GET",
+    url: "https://ddragon.leagueoflegends.com/api/versions.json",
+    success: function (patch) {
+      console.log("current patch: " + patch[0]);
 
-  xhr.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      cb(JSON.parse(this.responseText));
-    }
-  };
-}
+      // Get champion data.
+      $.ajax({
+        type: "GET",
+        url: `http://ddragon.leagueoflegends.com/cdn/${patch[0]}/data/en_GB/champion.json`,
+        success: function (champData) {
+          // Build champion icon display.
+          function buildGrid() {
+            let champArray = Array.from(Object.values(champData.data));
+            let el = " ";
+            let galleryItems = document.querySelector(".champ-grid").children;
+            let prev = document.querySelector(".prev");
+            let next = document.querySelector(".next");
+            let page = document.querySelector(".page-num");
+            let maxItem, pagination;
+            let index = 1;
+            let windowSize = window.matchMedia("(max-width: 700px)");
 
-function buildGrid(champData) {
-  let myArray = Array.from(Object.values(champData.data));
-  let el = " ";
-  let galleryItems = document.querySelector(".champ-grid").children;
-  let prev = document.querySelector(".prev");
-  let next = document.querySelector(".next");
-  let page = document.querySelector(".page-num");
-  let maxItem, pagination;
-  let index = 1;
-  let windowSize = window.matchMedia("(max-width: 700px)");
+            // Set Different amount of items to be displayed based on window size.
+            function setMaxItem(windowSize) {
+              if (windowSize.matches) {
+                maxItem = 20;
+                pagination = Math.ceil(champArray.length / maxItem);
+                $(next).removeClass("hide");
+                $("li.item:nth-child(n+21)").addClass("hide");
+              } else {
+                maxItem = champArray.length;
+                pagination = Math.ceil(champArray.length / maxItem);
+                $("li.item").removeClass("hide");
+              }
+            }
+            // Add listener to check window size.
+            setMaxItem(windowSize);
+            windowSize.addListener(setMaxItem);
 
+            // Display each entry from external json
+            for (let i = 0; i < champArray.length; i++) {
+              if (i < maxItem) {
+                el += `<li class="item show"><img onClick="return champPage(this.id);" id="${champArray[i].id}" name="${champArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${champArray[i].id}.png" alt="${champArray[i].id}"></li>`;
+                document.getElementById("champ-grid").innerHTML = el;
+              } else {
+                el += `<li class="item hide"><img id="${champArray[i].id}" name="${champArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${champArray[i].id}.png" alt="${champArray[i].id}"></li>`;
+                document.getElementById("champ-grid").innerHTML = el;
+              }
+            }
 
-  function setMaxItem(windowSize) {
-    if (windowSize.matches) {
-      maxItem = 20;
-      pagination = Math.ceil(myArray.length / maxItem);
-      $(next).removeClass("hide");
-      $("li.item:nth-child(n+21)").addClass("hide");
-    } else {
-      maxItem = myArray.length;
-      pagination = Math.ceil(myArray.length / maxItem);
-      $("li.item").removeClass("hide")
-    }
-  }
+            //Set up pagination buttons
+            prev.addEventListener("click", function () {
+              index--;
+              check();
+              showItems();
+            });
 
-  setMaxItem(windowSize);
-  windowSize.addListener(setMaxItem);
+            next.addEventListener("click", function () {
+              index++;
+              check();
+              showItems();
+            });
 
-  setInterval(function () {
-    console.log(pagination);
-  }, 100);
+            function check() {
+              if (index == pagination) {
+                next.classList.add("disabled");
+              } else {
+                next.classList.remove("disabled");
+              }
 
-  for (let i = 0; i < myArray.length; i++) {
-    if (i < maxItem) {
-      el += `<li class="item show"><img onClick="return champPage(this.id);" id="${myArray[i].id}" name="${myArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${myArray[i].id}.png" alt="${myArray[i].id}"></li>`;
-      document.getElementById("champ-grid").innerHTML = el;
-    } else {
-      el += `<li class="item hide"><img id="${myArray[i].id}" name="${myArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${myArray[i].id}.png" alt="${myArray[i].id}"></li>`;
-      document.getElementById("champ-grid").innerHTML = el;
-    }
-  }
-  prev.addEventListener("click", function () {
-    index--;
-    check();
-    showItems();
-  });
+              if (index == 1) {
+                prev.classList.add("disabled");
+              } else {
+                prev.classList.remove("disabled");
+              }
+            }
 
-  next.addEventListener("click", function () {
-    index++;
-    check();
-    showItems();
-  });
+            //Add css class to current images being show and hide class to images being hidden
+            function showItems() {
+              for (let i = 0; i < champArray.length; i++) {
+                galleryItems[i].classList.add("hide");
 
-  function check() {
-    if (index == pagination) {
-      next.classList.add("disabled");
-    } else {
-      next.classList.remove("disabled");
-    }
+                if (i >= index * maxItem - maxItem && i < index * maxItem) {
+                  galleryItems[i].classList.remove("hide");
+                }
+                page.innerHTML = index;
+              }
+            }
 
-    if (index == 1) {
-      prev.classList.add("disabled");
-    } else {
-      prev.classList.remove("disabled");
-    }
-  }
+            window.onload = function () {
+              showItems();
+              check();
+            };
+          }
 
-  function showItems() {
-    for (let i = 0; i < myArray.length; i++) {
-      galleryItems[i].classList.add("hide");
-
-      if (i >= index * maxItem - maxItem && i < index * maxItem) {
-        galleryItems[i].classList.remove("hide");
+          buildGrid();
+        },
+      });
+    },
+    error: function (jqXHR, exception) {
+      var msg = "";
+      if (jqXHR.status === 0) {
+        msg = "Not connect.\n Verify Network.";
+      } else if (jqXHR.status == 404) {
+        msg = "Requested page not found. [404]";
+      } else if (jqXHR.status == 500) {
+        msg = "Internal Server Error [500].";
+      } else if (exception === "parsererror") {
+        msg = "Requested JSON parse failed.";
+      } else if (exception === "timeout") {
+        msg = "Time out error.";
+      } else if (exception === "abort") {
+        msg = "Ajax request aborted.";
+      } else {
+        msg = "Uncaught Error.\n" + jqXHR.responseText;
       }
-      page.innerHTML = index;
-    }
-  }
+      console.log(msg);
+    },
+  });
+});
 
-  window.onload = function () {
-    showItems();
-    check();
-  };
-
-  
-}
-
-getData(buildGrid);
-
-
+//Search through images to find specified champion.
 function searchChamp() {
   let input = document.getElementById("champ-search");
   let filter = input.value.toUpperCase();
