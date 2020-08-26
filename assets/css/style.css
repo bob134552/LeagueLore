@@ -126,7 +126,7 @@ textarea.form-input {
     margin: auto;
 }
 
-@media screen and (min-width: 700px) {
+/**@media screen and (min-width: 700px) {
     .pagination-buttons {
         display: none;
     }

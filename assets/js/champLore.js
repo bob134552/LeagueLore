@@ -1,5 +1,5 @@
 
-function champPage(champId) {
+function champPage(champId, champName) {
     $(".champions").fadeOut();
     
 
@@ -9,7 +9,7 @@ function champPage(champId) {
         success: function (data) {
 
             let champion = data.data[champId];
-            $(".lore-page").html(`
+            $("#lore-page").html(`
             <div>
             <img class="splash" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg">
             <div>${champion.lore}</div>
@@ -17,7 +17,22 @@ function champPage(champId) {
             `).fadeIn();
         },
         error:function(){
-
         }   
     });
+
+    let apiKey = "AIzaSyBhX4xm76nIrGUv-GFZeIuChOO6gQWK-4w"
+    let baseUrl = "https://www.googleapis.com/youtube/v3/playlistItems"
+    let playlistID = "PLbAFXJC0J5GaVjPNNw_i-oLNKc7bVQcFk"
+
+    let options = {
+            part: 'snippet',
+            key: apiKey,
+            maxResults: 50,
+            playlistId: playlistID
+    }
+
+    $.getJSON(baseUrl, options, function (videoData) {
+            console.log(videoData.items);
+        }
+    );
 }
