@@ -112,8 +112,40 @@ textarea.form-input {
 }
 
 .item {
-    float: left;
+  position: relative;
+  display: inline-block;
 }
+.item .champ-name {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.item .champ-name::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+
+.item:hover .champ-name {
+  visibility: visible;
+}
+
 
 .prev.disabled, .next.disabled {
 	border-color: gray;
@@ -126,8 +158,20 @@ textarea.form-input {
     margin: auto;
 }
 
-/**@media screen and (min-width: 700px) {
+.container {
+    width: 80vw;
+}
+
+.splash {
+    width: 70vw;
+    margin: auto;
+    object-fit: cover;
+}
+
+
+@media screen and (min-width: 700px) {
     .pagination-buttons {
         display: none;
+        align-content: center;
     }
 }

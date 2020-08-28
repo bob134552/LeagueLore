@@ -49,10 +49,10 @@ $(function () {
             // Display each entry from external json
             for (let i = 0; i < champArray.length; i++) {
               if (i < maxItem) {
-                el += `<div class="item show"><img onClick="return champPage(this.id, this.name)" id="${champArray[i].id}" name="${champArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${champArray[i].id}.png" alt="${champArray[i].id}"></div>`;
+                el += `<div class="item show"><img onClick="return champPage(this.id, this.name)" id="${champArray[i].id}" name="${champArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${champArray[i].id}.png" alt="${champArray[i].id}"><span class="champ-name">${champArray[i].name}</span></div>`;
                 document.getElementById("champ-grid").innerHTML = el;
               } else {
-                el += `<div class="item hide"><img onClick="return champPage(this.id, this.name)" id="${champArray[i].id}" name="${champArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${champArray[i].id}.png" alt="${champArray[i].id}"></div>`;
+                el += `<div class="item hide"><img onClick="return champPage(this.id, this.name)" id="${champArray[i].id}" name="${champArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/${champArray[i].id}.png" alt="${champArray[i].id}"><span class="champ-name">${champArray[i].name}</span></div>`;
                 document.getElementById("champ-grid").innerHTML = el;
               }
             }
