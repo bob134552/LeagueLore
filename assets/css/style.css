@@ -16,6 +16,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    height: 70px;
 }
 
 .nav ul li {
@@ -52,7 +53,8 @@ body {
 
 .champ-grid img {
     margin: 4px 4px;
-    object-fit: scale-down;
+    width: 20vw;
+
 }
 
 .pagination-buttons {
@@ -108,12 +110,17 @@ textarea.form-input {
 }
 
 .hide{
-	display: none;
+	display: none !important;
 }
 
+.champ-grid {
+    display: inline-flex;
+    align-content: stretch;
+    flex-wrap: wrap;
+}
 .item {
   position: relative;
-  display: inline-block;
+  flex: 1 0 19%;
 }
 .item .champ-name {
   visibility: hidden;
@@ -160,11 +167,11 @@ textarea.form-input {
 
 .container {
     width: 80vw;
+    margin: auto;
 }
 
 .splash {
-    width: 70vw;
-    margin: auto;
+    width: 100%;
     object-fit: cover;
 }
 

@@ -10,9 +10,10 @@ function champPage(champId, champName) {
         .html(
           `<div class = "container">
             <img class = "splash" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg">
-            <br><br>
             <div class = "row">
-            <div>${champion.lore}</div>
+            <div class = "col-xs-12">
+            <br><br>
+            <p>${champion.lore}</p></div>
             </div>
             </div>
             `
