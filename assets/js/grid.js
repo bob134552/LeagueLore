@@ -1,8 +1,7 @@
 $(function () {
+  $("#lore-page").fadeOut();
+  $("#video").fadeOut();
 
-    $("#lore-page").fadeOut();
-    $("#video").fadeOut();
-    
   // Get current patch version.
   $.ajax({
     type: "GET",
@@ -15,7 +14,6 @@ $(function () {
         type: "GET",
         url: `http://ddragon.leagueoflegends.com/cdn/${patch[0]}/data/en_GB/champion.json`,
         success: function (champData) {
-
           // Build champion icon display.
           function buildGrid() {
             let champArray = Array.from(Object.values(champData.data));

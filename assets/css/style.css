@@ -1,122 +1,118 @@
-body {    
-    padding: 0;
-    margin: 0;
-    background: url("../images/gradient-hex.jpg")no-repeat center center fixed;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+body {
+  padding: 0;
+  margin: 0;
+  background: url("../images/gradient-hex.jpg") no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 .navbar {
-    height: 30vw;
+  height: 30vw;
 }
 
 .nav img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 70px;
 }
 
 .nav ul li {
-    list-style: none;
-    display: inline-block;
-    margin-left: 15px;
-    margin-right: 10px;
-    text-decoration: none;
+  list-style: none;
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 10px;
+  text-decoration: none;
 }
 
 .nav ul {
-    position: absolute;
-    right: 0;
-    top: 15px;
+  position: absolute;
+  right: 0;
+  top: 15px;
 }
 
-
 .site-logo {
-    margin-left: auto;
-    margin-right: auto;
-    width: 40vw;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40vw;
 }
 
 .search input {
-    width: 60vw;
-
+  width: 60vw;
 }
 
 .search {
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 15px;
 }
 
 .champ-grid img {
-    margin: 4px 4px;
-    width: 20vw;
-
+  margin: 4px 4px;
+  width: 20vw;
 }
 
 .pagination-buttons {
-    margin: auto;
+  margin: auto;
 }
 
 .form-idea {
-    padding-top: 30px;
-    min-height: 240px;
-    margin: 0 auto;
-    max-width: 50%;
+  padding-top: 30px;
+  min-height: 240px;
+  margin: 0 auto;
+  max-width: 50%;
 }
 
 form {
-    display: block;
-    margin-top: 0em;
+  display: block;
+  margin-top: 0em;
 }
 
 .form-input {
-    display: block;
-    width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 5px;
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
 }
 
 textarea.form-input {
-    height: auto;
+  height: auto;
 }
 
-
 .center-block {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .form-input button {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .btn-submit {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    margin-top: 5px;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  margin-top: 5px;
 }
 
-.hide{
-	display: none !important;
+.hide {
+  display: none !important;
 }
 
 .champ-grid {
-    display: inline-flex;
-    align-content: stretch;
-    flex-wrap: wrap;
+  display: inline-flex;
+  align-content: stretch;
+  flex-wrap: wrap;
 }
 .item {
   position: relative;
@@ -148,37 +144,63 @@ textarea.form-input {
   border-color: black transparent transparent transparent;
 }
 
-
 .item:hover .champ-name {
   visibility: visible;
 }
 
-
-.prev.disabled, .next.disabled {
-	border-color: gray;
-	color:gray;
-	pointer-events: none;
+.prev.disabled,
+.next.disabled {
+  border-color: gray;
+  color: gray;
+  pointer-events: none;
 }
 
 .container-grid {
-    width: 90vw;
-    margin: auto;
+  width: 90vw;
+  margin: auto;
 }
 
 .container {
-    width: 80vw;
-    margin: auto;
+  width: 80vw;
+  margin: auto;
+  position: relative;
 }
 
 .splash {
-    width: 100%;
-    object-fit: cover;
+  width: 100%;
+  object-fit: cover;
+}
+.name {
+  color: gold;
 }
 
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 @media screen and (min-width: 700px) {
-    .pagination-buttons {
-        display: none;
-        align-content: center;
-    }
+  .pagination-buttons {
+    display: none;
+    align-content: center;
+  }
+  .name {
+    position: absolute;
+    bottom: -16px;
+    left: 20px;
+    font-size: calc(40px - 22px);
+    color: gold;
+  }
 }
