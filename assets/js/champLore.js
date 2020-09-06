@@ -43,7 +43,15 @@ function champPage(champId, champName) {
             ${champion.enemytips.join('<br>')}
             </p>
             <br>
+            <p>Abilities:</p>
             </div>
+            </div>
+            <div class = "row">
+            <div class = "col-xs mx-2"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/passive/${champion.passive.image.full}"></div>
+            <div class = "col-xs mx-2"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${abilityQ.image.full}"></div>
+            <div class = "col-xs mx-2"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${abilityW.image.full}"></div>
+            <div class = "col-xs mx-2"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${abilityE.image.full}"></div>
+            <div class = "col-xs mx-2"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${abilityR.image.full}"></div>
             </div>
             </div>
             `
