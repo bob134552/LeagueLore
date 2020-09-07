@@ -10,18 +10,19 @@ function champPage(champId, champName) {
       let abilityW = champion.spells[1];
       let abilityE = champion.spells[2];
       let abilityR = champion.spells[3];
-    
 
       $("#lore-page")
         .html(
-          `<div class = "container">
+          `<div class = "splash-container">
             <img class = "splash" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg">
-            <p class = "name">${champName}, <span style="text-transform: capitalize;">${champion.title}</span></p></div>
+            <p class = "name">${champName}, <span style="text-transform: capitalize;">${
+            champion.title
+          }</span></p></div>
             <div class = "container">
             <div class = "row">
-            <div class = "col-xs-12">
+            <div class = "col-12">
             <br>
-            <p>Role: ${champion.tags.join(', ')}</p>
+            <p>Role: ${champion.tags.join(", ")}</p>
             <p>Stats:
             <br>
             Attack: ${champion.info.attack}/10
@@ -36,29 +37,92 @@ function champPage(champId, champName) {
             <br>${champion.lore}</p>
             <p>Tips when playing ${champName}:
             <br>
-            ${champion.allytips.join('<br>')}
+            ${champion.allytips.join("<br>")}
             <br><br>
             Tips when playing against ${champName}:
             <br>
-            ${champion.enemytips.join('<br>')}
+            ${champion.enemytips.join("<br>")}
             </p>
             <br>
             <p>Abilities:</p>
             </div>
             </div>
             <div class = "row">
-            <div class = "col-xs mx-2"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/passive/${champion.passive.image.full}"></div>
-            <div class = "col-xs mx-2"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${abilityQ.image.full}"></div>
-            <div class = "col-xs mx-2"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${abilityW.image.full}"></div>
-            <div class = "col-xs mx-2"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${abilityE.image.full}"></div>
-            <div class = "col-xs mx-2"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${abilityR.image.full}"></div>
+            <div class = "col-xs ml-2" id = "passive-image"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/passive/${
+              champion.passive.image.full
+            }"></div>
+            <div class = "col-xs ml-2" id = "q-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${
+              abilityQ.image.full
+            }"></div>
+            <div class = "col-xs ml-2" id = "w-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${
+              abilityW.image.full
+            }"></div>
+            <div class = "col-xs ml-2" id = "e-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${
+              abilityE.image.full
+            }"></div>
+            <div class = "col-xs ml-2" id = "r-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${
+              abilityR.image.full
+            }"></div>
+            <div class = "col-12">
+            <br>
+            <p id = "passive"><strong>${champion.passive.name}</strong><br>${
+            champion.passive.description
+          }</p>
+            <p id = "q-ability" class = "hide"><strong>${
+              abilityQ.name
+            }</strong><br>${abilityQ.description}</p>
+            <p id = "w-ability" class = "hide"><strong>${
+              abilityW.name
+            }</strong><br>${abilityW.description}</p>
+            <p id = "e-ability" class = "hide"><strong>${
+              abilityE.name
+            }</strong><br>${abilityE.description}</p>
+            <p id = "r-ability" class = "hide"><strong>${
+              abilityR.name
+            }</strong><br>${abilityR.description}</p>
+            </div>
             </div>
             </div>
             `
         )
         .fadeIn();
+
+      $("#passive-image img").click(function () {
+        $("#passive").removeClass("hide");
+        $("#q-ability").addClass("hide");
+        $("#w-ability").addClass("hide");
+        $("#e-ability").addClass("hide");
+        $("#r-ability").addClass("hide");
+      });
+      $("#q-ability-image img").click(function () {
+        $("#passive").addClass("hide");
+        $("#q-ability").removeClass("hide");
+        $("#w-ability").addClass("hide");
+        $("#e-ability").addClass("hide");
+        $("#r-ability").addClass("hide");
+      });
+      $("#w-ability-image img").click(function () {
+        $("#passive").addClass("hide");
+        $("#q-ability").addClass("hide");
+        $("#w-ability").removeClass("hide");
+        $("#e-ability").addClass("hide");
+        $("#r-ability").addClass("hide");
+      });
+      $("#e-ability-image img").click(function () {
+        $("#passive").addClass("hide");
+        $("#q-ability").addClass("hide");
+        $("#w-ability").addClass("hide");
+        $("#e-ability").removeClass("hide");
+        $("#r-ability").addClass("hide");
+      });
+      $("#r-ability-image img").click(function () {
+        $("#passive").addClass("hide");
+        $("#q-ability").addClass("hide");
+        $("#w-ability").addClass("hide");
+        $("#e-ability").addClass("hide");
+        $("#r-ability").removeClass("hide");
+      });
     },
-    error: function () {},
   });
 
   let apiKey = "AIzaSyBkNEvkze9pxTOw0Gqj5yCNkYHwCNRYL2s";
@@ -69,16 +133,14 @@ function champPage(champId, champName) {
     key: apiKey,
     maxResults: 1,
     channelId: channelID,
-    q: `${champName}+champion+spotlight`,
+    q: `${champName} champion spotlight`,
   };
 
-  /**$.getJSON(baseUrl, options, function (videoData) {
+  $.getJSON(baseUrl, options, function (videoData) {
     console.log(videoData.items);
     let videoUrl = videoData.items[0].id.videoId;
     let videoName = videoData.items[0].snippet.title;
-    if (
-      videoName.includes(champName) == true
-    ) {
+    if (videoName.includes(champName) == true) {
       $("#video")
         .html(
           `
@@ -87,5 +149,5 @@ function champPage(champId, champName) {
         )
         .fadeIn();
     }
-  });**/
+  });
 }

@@ -1,66 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="assets/css/style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	<title>League Lore</title>
-</head>
+    <title>League Lore</title>
+  </head>
 
-<body>
-	<section class="container-fluid ">
-		<div class="navbar nav row">
-			<div class="col-xs-12">
-				<img src="assets/images/llogo.jpg" alt="Logo" class="logo">
-				<ul>
-					<li>
-						<a href="index.html">Home</a>
-					</li>
-					<li>
-						<a href="contact.html">Contact Us</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="site-logo"><img src="#" alt="site-logo"></div>
-	</section>
-
-
-	<section class="champions container-fluid">
-		<div class="row">
-			<div class="search col-xs-12">
-				<input class="champ-search" id="champ-search" onkeyup="searchChamp()" type="text" placeholder="Enter Champion Name">
-            </div>
-			</div>
-			<div class="row container-grid">
-				<div class="col-xs-12">
-					<div id="champ-grid" class="champ-grid">
-                    </div>
-				</div>
-				<div class="row pagination-buttons">
-					<div class="col-xs-12">
-						<div class="pagination">
-							<div class="btn btn-primary prev disabled">Previous</div>
-							<div class="page text-white bg-success"> <span class="page-num">1</span> </div>
-							<div class="btn btn-primary next">Next</div>
-						</div>
-					</div>
-				</div>
-			</div>
-	</section>
-    
-    <section class="container-fluid" id="lore-page"></section>
-    <section class="container-fluid" id="video">
+  <body>
+    <section class="container-fluid">
+      <div class="navbar nav row">
+        <div class="col-xs-12">
+          <img src="assets/images/llogo.jpg" alt="Logo" class="logo" />
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-logo"><img src="#" alt="site-logo" /></div>
     </section>
 
-<script src="https://apis.google.com/js/api.js"></script>
-<script src="assets/js/grid.js"></script>
-<script src="assets/js/champLore.js"></script>
+    <section class="champions container-fluid">
+      <div class="row">
+        <div class="search col-xs-12">
+          <input
+            class="champ-search"
+            id="champ-search"
+            onkeyup="searchChamp()"
+            type="text"
+            placeholder="Enter Champion Name"
+          />
+        </div>
+      </div>
+      <div class="row container-grid">
+        <div class="col-xs-12">
+          <div id="champ-grid" class="champ-grid"></div>
+        </div>
+        <div class="row pagination-buttons">
+          <div class="col-xs-12">
+            <div class="pagination">
+              <div class="btn btn-primary prev disabled">Previous</div>
+              <div class="page text-white bg-success">
+                <span class="page-num">1</span>
+              </div>
+              <div class="btn btn-primary next">Next</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</body>
+    <section class="container-fluid" id="lore-page"></section>
+    <section class="container-fluid" id="video"></section>
 
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="assets/js/grid.js"></script>
+    <script src="assets/js/champLore.js"></script>
+  </body>
 </html>
