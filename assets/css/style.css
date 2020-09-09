@@ -9,11 +9,7 @@ body {
   border-left: 2rem solid red;
   border-right: 2rem solid red;
   border-top: 2rem solid red;
-  height: 100vh;
-}
-
-.navbar {
-  height: 30vw;
+  height: 100%;
 }
 
 .nav img {
@@ -38,12 +34,6 @@ body {
   top: -2rem;
 }
 
-.site-logo {
-  margin-left: auto;
-  margin-right: auto;
-  width: 40vw;
-}
-
 .search input {
   width: 60vw;
 }
@@ -58,8 +48,14 @@ body {
   margin: 4px 4px;
 }
 
+.champ-grid {
+    width: 80%;
+    margin: auto;
+}
+
 .pagination-buttons {
   margin: auto;
+  display: none;
 }
 
 .form-idea {
@@ -113,16 +109,16 @@ textarea.form-input {
   display: none !important;
 }
 
-.champ-grid {
-  display: inline-flex;
-  flex-wrap: wrap;
+.item {
+  display: inline-block;
+  position: relative;
 }
 
 .item .champ-name {
   visibility: hidden;
   width: 120px;
-  background-color: black;
-  color: #fff;
+  background-color: white;
+  color: black;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
@@ -141,7 +137,7 @@ textarea.form-input {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: black transparent transparent transparent;
+  border-color: white transparent transparent transparent;
 }
 
 .item:hover .champ-name {
@@ -150,18 +146,14 @@ textarea.form-input {
 
 .prev.disabled,
 .next.disabled {
-  border-color: gray;
-  color: gray;
-  pointer-events: none;
+display: none;
 }
 
 .container-grid {
-  width: 90vw;
   margin: auto;
 }
 
 .splash-container {
-  width: 80vw;
   margin: auto;
   position: relative;
 }
@@ -190,11 +182,45 @@ textarea.form-input {
   width: 100%;
   height: 100%;
 }
+.site-logo {
+  width: 100%;
+  overflow: hidden;
+  margin: auto;
+  max-width: 500px;
+  padding-bottom: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-@media(min-width: 700px) {
+.slide-left h1 {
+  animation: 2s slide-left 2s forwards;
+  transform: translateX(-100%);
+}
+
+#video {
+    padding-bottom: 3rem;
+}
+
+#passive-image img, #q-ability-image img, #w-ability-image img, #e-ability-image img, #r-ability-image img {
+    width: 50px;
+    height: 50px;
+    margin-top: 3px;
+}
+
+footer {
+    height: 10vw;
+    background-color: red;
+    margin-top: 50px;
+}
+
+@keyframes slide-left {
+  to {
+    transform: translateX(0);
+  }
+}
+@media (max-width: 700px) {
   .pagination-buttons {
-    display: none;
-    align-content: center;
+    display: block;
   }
   .name {
     position: absolute;
@@ -203,8 +229,8 @@ textarea.form-input {
     font-size: calc(40px - 22px);
     color: gold;
   }
-  .item {
-    position: relative;
-    flex: 1 0 19%;
+
+  .item img {
+    width: 15vw;
   }
 }
