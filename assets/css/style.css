@@ -8,6 +8,8 @@ body {
   -o-background-size: cover;
   border-left: 2rem solid red;
   border-right: 2rem solid red;
+  border-top: 2rem solid red;
+  height: 100vh;
 }
 
 .navbar {
@@ -16,9 +18,10 @@ body {
 
 .nav img {
   position: absolute;
-  top: 0;
+  top: -2rem;
   left: -2rem;
-  height: 70px;
+  height: auto;
+  width: 2rem;
 }
 
 .nav ul li {
@@ -31,8 +34,8 @@ body {
 
 .nav ul {
   position: absolute;
-  right: 0;
-  top: 15px;
+  right: -2rem;
+  top: -2rem;
 }
 
 .site-logo {
@@ -53,7 +56,6 @@ body {
 
 .champ-grid img {
   margin: 4px 4px;
-  width: 20vw;
 }
 
 .pagination-buttons {
@@ -113,13 +115,9 @@ textarea.form-input {
 
 .champ-grid {
   display: inline-flex;
-  align-content: stretch;
   flex-wrap: wrap;
 }
-.item {
-  position: relative;
-  flex: 1 0 19%;
-}
+
 .item .champ-name {
   visibility: hidden;
   width: 120px;
@@ -193,7 +191,7 @@ textarea.form-input {
   height: 100%;
 }
 
-@media screen and (min-width: 700px) {
+@media(min-width: 700px) {
   .pagination-buttons {
     display: none;
     align-content: center;
@@ -204,5 +202,9 @@ textarea.form-input {
     left: 20px;
     font-size: calc(40px - 22px);
     color: gold;
+  }
+  .item {
+    position: relative;
+    flex: 1 0 19%;
   }
 }
