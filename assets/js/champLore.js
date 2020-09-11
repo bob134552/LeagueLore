@@ -24,15 +24,29 @@ function champPage(champId, champName) {
             <br>
             <p>Role: ${champion.tags.join(", ")}</p>
             <p>Stats:
-            <br>
-            Attack: ${champion.info.attack}/10
-            <br>
-            Defense: ${champion.info.defense}/10
-            <br>
-            Magic: ${champion.info.magic}/10
-            <br>
-            Difficulty: ${champion.info.difficulty}/10
-            </p>
+            <br></p>
+            <div class="stats-bar" style="width: ${
+              champion.info.attack
+            }0%; background: red;">
+            <span id="attackbar"> Attack: ${champion.info.attack}/10</span>
+            </div>
+            <div class="stats-bar" style="width: ${
+              champion.info.defense
+            }0%; background: green;">
+            <span id="defensebar"> Defense: ${champion.info.defense}/10</span>
+            </div>
+            <div class="stats-bar" style="width: ${
+              champion.info.magic
+            }0%; background: blue;">
+            <span id="magicbar"></span> Magic: ${champion.info.magic}/10</span>
+            </div>
+            <div class="stats-bar" style="width: ${
+              champion.info.difficulty
+            }0%; background: purple;">
+            <span id="difficultybar"></span> Difficulty: ${
+              champion.info.difficulty
+            }/10</span>
+            </div>
             <p>Lore:
             <br>${champion.lore}</p>
             <p>Tips when playing ${champName}:
