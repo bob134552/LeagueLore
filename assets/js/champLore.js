@@ -47,6 +47,7 @@ function champPage(champId, champName) {
               champion.info.difficulty
             }/10</span>
             </div>
+            <br>
             <p>Lore:
             <br>${champion.lore}</p>
             <p>Tips when playing ${champName}:
@@ -150,18 +151,23 @@ function champPage(champId, champName) {
     q: `${champName} champion spotlight`,
   };
 
-  $.getJSON(baseUrl, options, function (videoData) {
-    console.log(videoData.items);
-    let videoUrl = videoData.items[0].id.videoId;
-    let videoName = videoData.items[0].snippet.title;
-    if (videoName.includes(champName) == true) {
-      $("#video")
-        .html(
-          `
+  $.ajax({
+    type: "GET",
+    url: baseUrl,
+    data: options,
+    success: function (videoData) {
+      console.log(videoData.items);
+      let videoUrl = videoData.items[0].id.videoId;
+      let videoName = videoData.items[0].snippet.title;
+      if (videoName.includes(champName) == true) {
+        $("#video")
+          .html(
+            `
         <div class='embed-container'><iframe src='https://www.youtube.com/embed/${videoUrl}' frameborder='0' allowfullscreen></iframe></div>
-    `
-        )
-        .fadeIn();
-    }
+        `
+          )
+          .fadeIn();
+      }
+    },
   });
 }

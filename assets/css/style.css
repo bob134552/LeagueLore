@@ -6,10 +6,11 @@ body {
   padding: 0;
   margin: 0;
   background: #161616;
-  border-left: 3rem solid#F8D800;
-  border-right: 3rem solid#F8D800;
+  border-left: 1rem solid#F8D800;
+  border-right: 1rem solid#F8D800;
   border-top: 3rem solid #f8d800;
   height: 100%;
+  color: #fff;
 }
 
 /*---Navbar---*/
@@ -17,14 +18,14 @@ body {
 .nav img {
   position: absolute;
   top: -3rem;
-  left: -3rem;
+  left: -1rem;
   height: 3rem;
   width: 3rem;
 }
 
 .nav ul {
   position: absolute;
-  right: -2rem;
+  right: -1rem;
   top: -2.5rem;
 }
 
@@ -66,6 +67,7 @@ body {
 .slide-left p {
   animation: 2s slide-left 1s forwards;
   transform: translateX(-150%);
+  margin: auto;
 }
 
 @keyframes slide-left {
@@ -88,16 +90,17 @@ body {
 
 /*---Grid---*/
 
+.champions {
+  margin-bottom: 22.5rem;
+}
 .champ-grid {
-  width: 90%;
+  width: 60%;
   margin: auto;
 }
 
 .champ-grid img {
   margin: 3px 3px;
-  max-width: 200px;
-  min-width: 50px;
-  width: 120px;
+  width: 86px;
 }
 
 .item {
@@ -142,6 +145,21 @@ body {
 .pagination-buttons {
   margin: auto;
   display: none;
+}
+
+.page-num {
+    position: relative;
+    top: 6px;
+}
+
+.button {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.button:hover {
+    color: rgb(0, 162, 255);
+    text-decoration: underline;
 }
 
 .prev.disabled,
@@ -203,6 +221,7 @@ body {
 
 #video {
   padding-bottom: 3rem;
+  width: 50%;
 }
 
 /*---Contact form---*/
@@ -215,7 +234,7 @@ form {
   padding-top: 30px;
   min-height: 240px;
   margin: 0 auto;
-  max-width: 50%;
+  max-width: 80%;
 }
 
 .form-input {
@@ -279,7 +298,28 @@ footer {
     width: 15vw;
   }
 
+  .blurb {
+    font-size: 5vw;
+    padding-bottom: 1rem;
+    margin: auto;
+  }
+
   .site-logo {
-    font-size: 2rem;
+    font-size: 6vw;
+    margin-left: 4rem;
+  }
+
+  .champ-grid {
+    width: 90%;
+    margin: auto;
+  }
+
+  .search {
+    width: 70vw;
+    margin: auto;
+  }
+
+  #video {
+    width: 100%;
   }
 }
