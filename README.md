@@ -1,39 +1,107 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+**Milestone Project 2: Interactive Frontend Development - Code Institute**
 
-Welcome bob134552,
+# League Lore.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
 
-## Gitpod Reminders
+# Demo
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+![Responsive-Mockup]()
 
-`python3 -m http.server`
+A live version of the site can be found [here](https://bob134552.github.io/). 
 
-A blue button should appear to click: *Make Public*,
+# UX
 
-Another blue button should appear to click: *Open Browser*.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+Balsamiq was used to create the following wireframe:
 
-A blue button should appear to click: *Make Public*,
+[Balsamiq Mobile and Desktop Wireframe](https://github.com/bob134552/)
 
-Another blue button should appear to click: *Open Browser*.
+## The Strategy Plane
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
 
-## Updates Since The Instructional Video
+## The Scope Plane
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## The Structure Plane
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## The Skeleton Plane
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
---------
+## The Surface Plane
 
-Happy coding!
+
+
+## User Stories
+
+
+# Features
+
+
+## Existing Features
+
+
+## Features Left to Implement
+
+
+## Technologies Used
+
+- [Balsamiq](https://balsamiq.com/)
+  - For a basic wireframe mockup.
+- [HTML](https://en.wikipedia.org/wiki/HTML)
+  - To create the site.
+- [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+  - To create custom styles.
+- [JQuery](https://jquery.com)
+  - To simplify DOM manipulation.
+- [Bootstrap](https://getbootstrap.com/)
+  - For better responsiveness.
+- [Font Awesome](https://fontawesome.com/)
+  - To add icons to navbar and reasons section.
+
+# Testing
+
+## Testing based on user stories:
+
+## As a user, 
+
+## As a user, 
+
+## As a user, 
+
+## As a user, 
+
+
+# Bugs and Problems
+
+
+## Validaton and Beautify
+
+The code for index.html and style.css was beautified using [Code Beautify](https://codebeautify.org/).
+
+In addition, the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and [W3C HTML Validator](https://validator.w3.org/#validate_by_input+with_options) was used to validate the code.
+
+## How the project works
+
+
+# Deployment
+
+The project was deployed through Github pages, from the master branch.
+
+Additionally the site will be updated after any git push to the master branch.
+
+
+### How to run code locally.
+
+To run the site locally you can visit [here]() and click on the "Code" drop down option, you then copy the HTTPS code provided into a code editor of your choice.
+
+# Credits
+
+## Content
+
+
+## Media
+
+
+
+## Acknowledgements

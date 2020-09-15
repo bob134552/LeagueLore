@@ -132,12 +132,18 @@ function searchChamp() {
   let filter = input.value.toUpperCase();
   let champList = document.getElementById("champ-grid");
   let champ = champList.getElementsByClassName("item");
-  let text, image;
+  let textName, textID, image;
 
   for (i = 0; i < champ.length; i++) {
     image = champ[i].getElementsByTagName("img")[0];
-    text = image.name;
-    if (text.toUpperCase().startsWith(filter)) {
+    textName = image.name;
+    textID = image.id;
+
+    //Checks if either the name or id of the element begins with what the user is searching for.
+    if (
+      textName.toUpperCase().startsWith(filter) ||
+      textID.toUpperCase().startsWith(filter)
+    ) {
       champ[i].classList.remove("hide");
     } else {
       champ[i].classList.add("hide");

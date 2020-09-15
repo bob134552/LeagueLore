@@ -6,9 +6,9 @@ body {
   padding: 0;
   margin: 0;
   background: #161616;
-  border-left: 1rem solid#F8D800;
-  border-right: 1rem solid#F8D800;
-  border-top: 3rem solid #f8d800;
+  border-left: 1rem solid#061c25;
+  border-right: 1rem solid#061c25;
+  border-top: 3rem solid #061c25;
   height: 100%;
   color: #fff;
 }
@@ -38,13 +38,17 @@ body {
   font-size: 1.5rem;
 }
 
+.icon {
+  color: #fbbf01;
+}
+
 /*---Site logo---*/
 
 .site-logo {
   width: 100%;
   overflow: hidden;
   margin: auto;
-  max-width: 600px;
+  max-width: 500px;
   padding-bottom: 1rem;
   margin-left: auto;
   margin-right: auto;
@@ -56,7 +60,7 @@ body {
 .blurb {
   width: 100%;
   margin: auto;
-  max-width: 600px;
+  max-width: 500px;
   padding-bottom: 3rem;
   margin-left: auto;
   margin-right: auto;
@@ -93,6 +97,7 @@ body {
 .champions {
   margin-bottom: 22.5rem;
 }
+
 .champ-grid {
   width: 60%;
   margin: auto;
@@ -148,18 +153,18 @@ body {
 }
 
 .page-num {
-    position: relative;
-    top: 6px;
+  position: relative;
+  top: 6px;
 }
 
 .button {
-    color: #fff;
-    text-decoration: underline;
+  color: #fff;
+  text-decoration: underline;
 }
 
 .button:hover {
-    color: rgb(0, 162, 255);
-    text-decoration: underline;
+  color: rgb(0, 162, 255);
+  text-decoration: underline;
 }
 
 .prev.disabled,
@@ -184,6 +189,14 @@ body {
 .stats-bar {
   height: 28px;
   margin-top: 4px;
+}
+
+#attackbar,
+#defensebar,
+#magicbar,
+#difficultybar {
+  font-size: 20px;
+  white-space: nowrap;
 }
 
 .name {
@@ -276,7 +289,7 @@ textarea.form-input {
 
 footer {
   height: 3rem;
-  background-color: #f8d800;
+  background-color: #061c25;
   margin-top: 50px;
 }
 
@@ -322,4 +335,14 @@ footer {
   #video {
     width: 100%;
   }
+  #attackbar,
+  #defensebar,
+  #magicbar,
+  #difficultybar {
+    font-size: 10px;
+  }
+
+  .champions {
+  margin-bottom:0;
+}
 }

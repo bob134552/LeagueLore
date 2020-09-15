@@ -6,6 +6,7 @@ function sendMail(ideaForm) {
       idea_suggestions: ideaForm.idea.value,
     })
     .then(
+      //When email sends.
       function (response) {
         console.log("SUCCESS", response);
         let load = document.getElementById("submitbutton").innerHTML;
@@ -13,6 +14,7 @@ function sendMail(ideaForm) {
         document.getElementById("submitbutton").innerHTML = done;
         document.getElementById("submitbutton").disabled = true;
       },
+      //If email doesn't send.
       function (error) {
         console.log("FAILED", error);
         let load = document.getElementById("submitbutton").innerHTML;
@@ -20,5 +22,7 @@ function sendMail(ideaForm) {
         document.getElementById("submitbutton").innerHTML = fail;
       }
     );
+
+  //Avoid reloading page after email has been sent.
   return false;
 }

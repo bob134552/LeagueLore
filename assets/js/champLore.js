@@ -1,16 +1,20 @@
+//Hide grid.
 function champPage(champId, champName) {
   $(".champions").fadeOut();
 
+  //ajax method to get JSON for clicked on champion.
   $.ajax({
     type: "GET",
     url: `http://ddragon.leagueoflegends.com/cdn/10.16.1/data/en_US/champion/${champId}.json`,
     success: function (data) {
+      //Declare champion and ability variables.
       let champion = data.data[champId];
       let abilityQ = champion.spells[0];
       let abilityW = champion.spells[1];
       let abilityE = champion.spells[2];
       let abilityR = champion.spells[3];
 
+      //Build up html for clicked on champion and then fade in.
       $("#lore-page")
         .html(
           `<div class = "splash-container">
@@ -38,12 +42,12 @@ function champPage(champId, champName) {
             <div class="stats-bar" style="width: ${
               champion.info.magic
             }0%; background: blue;">
-            <span id="magicbar"></span> Magic: ${champion.info.magic}/10</span>
+            <span id="magicbar"> Magic: ${champion.info.magic}/10</span>
             </div>
             <div class="stats-bar" style="width: ${
               champion.info.difficulty
             }0%; background: purple;">
-            <span id="difficultybar"></span> Difficulty: ${
+            <span id="difficultybar"> Difficulty: ${
               champion.info.difficulty
             }/10</span>
             </div>
@@ -102,6 +106,7 @@ function champPage(champId, champName) {
         )
         .fadeIn();
 
+      //Tabs to switch ability descriptions.
       $("#passive-image img").click(function () {
         $("#passive").removeClass("hide");
         $("#q-ability").addClass("hide");
@@ -140,6 +145,7 @@ function champPage(champId, champName) {
     },
   });
 
+  //Declare varaibles for ajax method.
   let apiKey = "AIzaSyBkNEvkze9pxTOw0Gqj5yCNkYHwCNRYL2s";
   let baseUrl = "https://www.googleapis.com/youtube/v3/search";
   let channelID = "UC2t5bjwHdUX4vM2g8TRDq5g";
@@ -151,12 +157,15 @@ function champPage(champId, champName) {
     q: `${champName} champion spotlight`,
   };
 
+  //Call videoData from youtube API using variables.
   $.ajax({
     type: "GET",
     url: baseUrl,
     data: options,
     success: function (videoData) {
       console.log(videoData.items);
+
+      //Check that video retrieved contains the champions name to avoid using wrong video.
       let videoUrl = videoData.items[0].id.videoId;
       let videoName = videoData.items[0].snippet.title;
       if (videoName.includes(champName) == true) {
