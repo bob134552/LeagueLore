@@ -1,27 +1,38 @@
 //Hide grid.
 function champPage(champId, champName) {
   $(".champions").fadeOut();
+  $("div.slide-left").fadeOut();
 
-  //ajax method to get JSON for clicked on champion.
+  //Add hash containing champions name.
+    window.location.hash = champName;
+  
+    // Get current patch version.
   $.ajax({
     type: "GET",
-    url: `http://ddragon.leagueoflegends.com/cdn/10.16.1/data/en_US/champion/${champId}.json`,
-    success: function (data) {
-      //Declare champion and ability variables.
-      let champion = data.data[champId];
-      let abilityQ = champion.spells[0];
-      let abilityW = champion.spells[1];
-      let abilityE = champion.spells[2];
-      let abilityR = champion.spells[3];
+    url: "https://ddragon.leagueoflegends.com/api/versions.json",
+    success: function (patch) {
+      //ajax method to get JSON for clicked on champion.
+      $.ajax({
+        type: "GET",
+        url: `http://ddragon.leagueoflegends.com/cdn/${patch[0]}/data/en_US/champion/${champId}.json`,
+        success: function (data) {
 
-      //Build up html for clicked on champion and then fade in.
-      $("#lore-page")
-        .html(
-          `<div class = "splash-container">
+          //Declare champion and ability variables.
+          let champion = data.data[champId];
+          let abilityQ = champion.spells[0];
+          let abilityW = champion.spells[1];
+          let abilityE = champion.spells[2];
+          let abilityR = champion.spells[3];
+
+          //Build up html for clicked on champion and then fade in.
+          $("#lore-page")
+            .html(
+              `<div class = "container">
+               <h2 class="text-center">${champName}, <span style="text-transform: capitalize;">${
+                champion.title
+              }</span></p>
+               </h2>
             <img class = "splash" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg">
-            <p class = "name">${champName}, <span style="text-transform: capitalize;">${
-            champion.title
-          }</span></p></div>
             <div class = "container">
             <div class = "row">
             <div class = "col-12">
@@ -67,83 +78,43 @@ function champPage(champId, champName) {
             </div>
             </div>
             <div class = "row">
-            <div class = "col-xs ml-2" id = "passive-image"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/passive/${
-              champion.passive.image.full
-            }"></div>
-            <div class = "col-xs ml-2" id = "q-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${
-              abilityQ.image.full
-            }"></div>
-            <div class = "col-xs ml-2" id = "w-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${
-              abilityW.image.full
-            }"></div>
-            <div class = "col-xs ml-2" id = "e-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${
-              abilityE.image.full
-            }"></div>
-            <div class = "col-xs ml-2" id = "r-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/10.16.1/img/spell/${
-              abilityR.image.full
-            }"></div>
-            <div class = "col-12">
-            <br>
-            <p id = "passive"><strong>${champion.passive.name}</strong><br>${
-            champion.passive.description
-          }</p>
-            <p id = "q-ability" class = "hide"><strong>${
+            <div class = "col-xs ml-2" id = "passive-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
+              patch[0]
+            }/img/passive/${champion.passive.image.full}"><p id = "passive"><strong>${champion.passive.name}</strong><br>${
+                champion.passive.description
+              }</p></div>
+            <div class = "col-xs ml-2" id = "q-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
+              patch[0]
+            }/img/spell/${abilityQ.image.full}"><p id = "q-ability"><strong>${
               abilityQ.name
-            }</strong><br>${abilityQ.description}</p>
-            <p id = "w-ability" class = "hide"><strong>${
+            }</strong><br>${abilityQ.description}</p></div>
+            <div class = "col-xs ml-2" id = "w-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
+              patch[0]
+            }/img/spell/${abilityW.image.full}"><p id = "w-ability"><strong>${
               abilityW.name
-            }</strong><br>${abilityW.description}</p>
-            <p id = "e-ability" class = "hide"><strong>${
+            }</strong><br>${abilityW.description}</p></div>
+            <div class = "col-xs ml-2" id = "e-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
+              patch[0]
+            }/img/spell/${abilityE.image.full}"><p id = "e-ability"><strong>${
               abilityE.name
-            }</strong><br>${abilityE.description}</p>
-            <p id = "r-ability" class = "hide"><strong>${
+            }</strong><br>${abilityE.description}</p></div>
+            <div class = "col-xs ml-2" id = "r-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
+              patch[0]
+            }/img/spell/${abilityR.image.full}"><p id = "r-ability"><strong>${
               abilityR.name
-            }</strong><br>${abilityR.description}</p>
-            </div>
+            }</strong><br>${abilityR.description}</p></div>
+            <br>
             </div>
             </div>
             `
-        )
-        .fadeIn();
-
-      //Tabs to switch ability descriptions.
-      $("#passive-image img").click(function () {
-        $("#passive").removeClass("hide");
-        $("#q-ability").addClass("hide");
-        $("#w-ability").addClass("hide");
-        $("#e-ability").addClass("hide");
-        $("#r-ability").addClass("hide");
-      });
-      $("#q-ability-image img").click(function () {
-        $("#passive").addClass("hide");
-        $("#q-ability").removeClass("hide");
-        $("#w-ability").addClass("hide");
-        $("#e-ability").addClass("hide");
-        $("#r-ability").addClass("hide");
-      });
-      $("#w-ability-image img").click(function () {
-        $("#passive").addClass("hide");
-        $("#q-ability").addClass("hide");
-        $("#w-ability").removeClass("hide");
-        $("#e-ability").addClass("hide");
-        $("#r-ability").addClass("hide");
-      });
-      $("#e-ability-image img").click(function () {
-        $("#passive").addClass("hide");
-        $("#q-ability").addClass("hide");
-        $("#w-ability").addClass("hide");
-        $("#e-ability").removeClass("hide");
-        $("#r-ability").addClass("hide");
-      });
-      $("#r-ability-image img").click(function () {
-        $("#passive").addClass("hide");
-        $("#q-ability").addClass("hide");
-        $("#w-ability").addClass("hide");
-        $("#e-ability").addClass("hide");
-        $("#r-ability").removeClass("hide");
+            )
+            .fadeIn();
+        },
       });
     },
   });
+
+
 
   //Declare varaibles for ajax method.
   let apiKey = "AIzaSyBkNEvkze9pxTOw0Gqj5yCNkYHwCNRYL2s";
@@ -172,6 +143,7 @@ function champPage(champId, champName) {
         $("#video")
           .html(
             `
+            <h4 class="text-center>${videoName}</h4>
         <div class='embed-container'><iframe src='https://www.youtube.com/embed/${videoUrl}' frameborder='0' allowfullscreen></iframe></div>
         `
           )
@@ -179,4 +151,9 @@ function champPage(champId, champName) {
       }
     },
   });
+
+  //Refresh to grid on back browser button.
+  window.addEventListener('popstate', () => {
+  location.reload();
+}, false);
 }
