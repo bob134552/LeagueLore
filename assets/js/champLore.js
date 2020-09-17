@@ -1,7 +1,7 @@
 //Hide grid.
 function champPage(champId, champName) {
   $(".champions").fadeOut();
-  $("div.slide-left").fadeOut();
+  $("div.slide-down").fadeOut();
 
   //Add hash containing champions name.
     window.location.hash = champName;
