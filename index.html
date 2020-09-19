@@ -1,79 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="upgrade-insecure-requests"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <title>League Lore</title>
-  </head>
 
-  <body>
-    <section class="container-fluid">
-      <div class="navbar nav row">
-        <div class="col-xs-12">
-          <img src="assets/images/llogo.jpg" alt="Logo" class="logo" />
-          <ul>
-            <li>
-              <a href="index.html"><i class="icon fas fa-home"></i></a>
-            </li>
-            <li>
-              <a href="contact.html"
-                ><i class="icon fas fa-envelope-open-text"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="slide-down text-center">
-        <p class="site-logo">League Lore</p>
-        <p class="blurb">Find out all about your favourite champions!</p>
-      </div>
-    </section>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<title>League Lore</title>
+</head>
 
-    <section class="container-fluid champions">
-      <div class="row">
-        <div class="search col-xs-12">
-          <input
-            class="champ-search"
-            id="champ-search"
-            onkeyup="searchChamp()"
-            type="text"
-            placeholder="Enter Champion Name"
-          />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div id="champ-grid" class="champ-grid"></div>
-        </div>
+<body>
+	<section class="container-fluid">
+		<div class="navbar nav row">
+			<div class="col-xs-12">
+				<img src="assets/images/llogo.jpg" alt="Logo" class="logo" />
+				<ul>
+					<li>
+						<a href="index.html"><i class="icon fas fa-home"></i></a>
+					</li>
+					<li>
+						<a href="contact.html"><i class="icon fas fa-envelope-open-text"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide-down text-center">
+			<p class="site-logo">League Lore</p>
+			<p class="blurb">Find out all about your favourite champions!</p>
+		</div>
+	</section>
 
-        <div class="row pagination-buttons">
-          <div class="col-xs-12">
-            <div class="pagination">
-              <div class="btn button prev disabled">&lt;&lt;&lt;</div>
-              <div class="page text-white">
-                <span class="page-num">1</span>
-              </div>
-              <div class="btn button next">&gt;&gt;&gt;</div>
+	<section class="container-fluid champions">
+		<div class="row search">
+			<div class="col-xs-4 language">
+				<select name="dropdown" id="dropdown">
+                    <option value="en_GB" name="default">English</option>
+                    <option value="zh_CN">Chinese (China)</option>
+                    <option value="zh_MY">Chinese (Malaysia)</option>
+                    <option value="zh_TW">Chinese (Taiwan)</option>
+                    <option value="cs_CZ">Czech</option>
+                    <option value="fr_FR">French</option>
+                    <option value="de_DE">German</option>
+                    <option value="el_GR">Greek</option>
+                    <option value="hu_HU">Hungarian</option>
+                    <option value="id_ID">Indonesian</option>
+                    <option value="it_IT">Italian</option>
+                    <option value="ja_JP">Japanese</option>
+                    <option value="ko_KR">Korean</option>
+                    <option value="ms_MY">Malay</option>
+                    <option value="pl_PL">Polish</option>
+                    <option value="pt_BR">Portuguese</option>
+                    <option value="ro_RO">Romanian</option>
+                    <option value="ru_RU">Russian</option>
+                    <option value="es_ES">Spanish</option>
+                    <option value="th_TH">Thai</option>
+                    <option value="tr_TR">Turkish</option>
+                    <option value="vn_VN">Vietnamese</option>
+                </select>
+			</div>
+			<div class="col-xs-8">
+				<input class="champ-search" id="champ-search" onkeyup="searchChamp()" type="text" placeholder="Enter Champion Name"/>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+			</div>
 
-    <section class="container-fluid" id="lore-page"></section>
-    <section class="container-fluid" id="video"></section>
-    <script src="https://kit.fontawesome.com/ffd731fb76.js"></script>
-    <script src="assets/js/grid.js"></script>
-    <script src="assets/js/champLore.js"></script>
-  </body>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<div id="champ-grid" class="champ-grid"></div>
+				</div>
+
+				<div class="row pagination-buttons">
+					<div class="col-xs-12">
+						<div class="pagination">
+							<div class="btn button prev disabled">&lt;&lt;&lt;</div>
+							<div class="page text-white">
+								<span class="page-num">1</span>
+							</div>
+							<div class="btn button next">&gt;&gt;&gt;</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+
+	<section class="container-fluid" id="lore-page"></section>
+	<section class="container-fluid" id="video"></section>
+	<script src="https://kit.fontawesome.com/ffd731fb76.js"></script>
+	<script src="assets/js/grid.js"></script>
+	<script src="assets/js/champLore.js"></script>
+</body>
+
 </html>

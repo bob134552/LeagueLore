@@ -9,7 +9,7 @@ body {
   border-left: 1rem solid#061c25;
   border-right: 1rem solid#061c25;
   border-top: 3rem solid #061c25;
-  height: 100vh;
+  height: 100%;
   color: #fff;
 }
 
@@ -57,10 +57,17 @@ body {
 
 /*---Search Bar---*/
 
+#dropdown {
+    margin-right: 19px;
+    margin-bottom: 7px;
+    height: 30px;
+}
+
 .search {
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 15px;
+  width: 70vw;
 }
 
 .search input {

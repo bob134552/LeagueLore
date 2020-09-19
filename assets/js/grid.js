@@ -1,4 +1,14 @@
-$(function () {
+let language = $(`option[name="default"]`).val();
+
+$('select[name="dropdown"]').change(function() {
+    language= $(this).val();
+    $(".champ-grid").html(" ");
+    getData(language);
+});
+
+
+
+function getData(language) {
     $("#lore-page").fadeOut();
     $("#video").fadeOut();
 
@@ -7,19 +17,21 @@ $(function () {
         type: "GET",
         url: "https://ddragon.leagueoflegends.com/api/versions.json",
         success: function (patch) {
-            console.log("current patch: " + patch[0]);
+            console.log("current patch: " + patch[0] + language);
 
             // Get champion data.
             $.ajax({
                 type: "GET",
-                url: `http://ddragon.leagueoflegends.com/cdn/${patch[0]}/data/en_GB/champion.json`,
+                url: `http://ddragon.leagueoflegends.com/cdn/${patch[0]}/data/${language}/champion.json`,
                 success: function (champions) {
                     buildGrid(champions, patch[0]);
                 },
             });
         },
     });
-});
+};
+
+$(document).ready(getData(language));
 
 // Build champion icon display.
 function buildGrid(champData, patch) {

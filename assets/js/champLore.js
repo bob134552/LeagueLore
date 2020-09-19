@@ -14,9 +14,8 @@ function champPage(champId, champName) {
       //ajax method to get JSON for clicked on champion.
       $.ajax({
         type: "GET",
-        url: `http://ddragon.leagueoflegends.com/cdn/${patch[0]}/data/en_US/champion/${champId}.json`,
+        url: `http://ddragon.leagueoflegends.com/cdn/${patch[0]}/data/${language}/champion/${champId}.json`,
         success: function (data) {
-
           //Declare champion and ability variables.
           let champion = data.data[champId];
           let abilityQ = champion.spells[0];
