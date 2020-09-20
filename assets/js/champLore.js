@@ -1,7 +1,7 @@
 //Hide grid.
 function champPage(champId, champName) {
   $(".champions").fadeOut();
-  $("div.slide-down").fadeOut();
+  $("div.callout").fadeOut();
 
   //Add hash containing champions name.
     window.location.hash = champName;
@@ -26,8 +26,9 @@ function champPage(champId, champName) {
           //Build up html for clicked on champion and then fade in.
           $("#lore-page")
             .html(
-              `<div class = "container">
-               <h2 class="text-center">${champName}, <span style="text-transform: capitalize;">${
+              `
+              <div class = "container">
+               <h2 class="text-center name">${champName}, <span style="text-transform: capitalize;">${
                 champion.title
               }</span></p>
                </h2>
@@ -76,33 +77,36 @@ function champPage(champId, champName) {
             <p>Abilities:</p>
             </div>
             </div>
+
+            <div class = "container">
             <div class = "row">
-            <div class = "col-xs ml-2" id = "passive-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
+            <div class = "col-xs-12 ml-2" id = "passive-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
               patch[0]
             }/img/passive/${champion.passive.image.full}"><p id = "passive"><strong>${champion.passive.name}</strong><br>${
                 champion.passive.description
-              }</p></div>
-            <div class = "col-xs ml-2" id = "q-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
+              }</p></div><br>
+            <div class = "col-xs-12 ml-2" id = "q-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
               patch[0]
             }/img/spell/${abilityQ.image.full}"><p id = "q-ability"><strong>${
               abilityQ.name
-            }</strong><br>${abilityQ.description}</p></div>
-            <div class = "col-xs ml-2" id = "w-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
+            }</strong><br>${abilityQ.description}</p></div><br>
+            <div class = "col-xs-12 ml-2" id = "w-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
               patch[0]
             }/img/spell/${abilityW.image.full}"><p id = "w-ability"><strong>${
               abilityW.name
-            }</strong><br>${abilityW.description}</p></div>
-            <div class = "col-xs ml-2" id = "e-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
+            }</strong><br>${abilityW.description}</p></div><br>
+            <div class = "col-xs-12 ml-2" id = "e-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
               patch[0]
             }/img/spell/${abilityE.image.full}"><p id = "e-ability"><strong>${
               abilityE.name
-            }</strong><br>${abilityE.description}</p></div>
-            <div class = "col-xs ml-2" id = "r-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
+            }</strong><br>${abilityE.description}</p></div><br>
+            <div class = "col-xs-12 ml-2" id = "r-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
               patch[0]
             }/img/spell/${abilityR.image.full}"><p id = "r-ability"><strong>${
               abilityR.name
             }</strong><br>${abilityR.description}</p></div>
             <br>
+            </div>
             </div>
             </div>
             `
@@ -142,7 +146,6 @@ function champPage(champId, champName) {
         $("#video")
           .html(
             `
-            <h4 class="text-center>${videoName}</h4>
         <div class='embed-container'><iframe src='https://www.youtube.com/embed/${videoUrl}' frameborder='0' allowfullscreen></iframe></div>
         `
           )

@@ -12,6 +12,7 @@
 </head>
 
 <body>
+ <div class="content">
 	<section class="container-fluid">
 		<div class="navbar nav row">
 			<div class="col-xs-12">
@@ -26,15 +27,15 @@
 				</ul>
 			</div>
 		</div>
-		<div class="slide-down text-center">
+		<div class="callout text-center">
 			<p class="site-logo">League Lore</p>
 			<p class="blurb">Find out all about your favourite champions!</p>
 		</div>
 	</section>
 
 	<section class="container-fluid champions">
-		<div class="row search">
-			<div class="col-xs-4 language">
+		<div class="row justify-content-center search">
+			<div class="col-xs-4 mx-1 language">
 				<select name="dropdown" id="dropdown">
                     <option value="en_GB" name="default">English</option>
                     <option value="zh_CN">Chinese (China)</option>
@@ -60,33 +61,37 @@
                     <option value="vn_VN">Vietnamese</option>
                 </select>
 			</div>
-			<div class="col-xs-8">
+			<div class="col-xs-8 mx-1">
 				<input class="champ-search" id="champ-search" onkeyup="searchChamp()" type="text" placeholder="Enter Champion Name"/>
             </div>
 			</div>
 
 
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-10 justify-content-center">
 					<div id="champ-grid" class="champ-grid"></div>
+					<br>
+					<br>
 				</div>
 
-				<div class="row pagination-buttons">
-					<div class="col-xs-12">
-						<div class="pagination">
-							<div class="btn button prev disabled">&lt;&lt;&lt;</div>
-							<div class="page text-white">
-								<span class="page-num">1</span>
+					<div class="row justify-content-center pagination-buttons">
+						<div class="col-xs-4">
+							<div class="pagination">
+								<div class="btn button prev disabled">&lt;&lt;&lt;</div>
+								<div class="page text-white">
+									<span class="page-num">1</span>
+								</div>
+								<div class="btn button next">&gt;&gt;&gt;</div>
 							</div>
-							<div class="btn button next">&gt;&gt;&gt;</div>
 						</div>
 					</div>
 				</div>
-			</div>
 	</section>
 
 	<section class="container-fluid" id="lore-page"></section>
-	<section class="container-fluid" id="video"></section>
+	<section class="container" id="video"></section>
+ </div>
+    <footer></footer>
 	<script src="https://kit.fontawesome.com/ffd731fb76.js"></script>
 	<script src="assets/js/grid.js"></script>
 	<script src="assets/js/champLore.js"></script>

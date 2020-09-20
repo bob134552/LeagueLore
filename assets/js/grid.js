@@ -17,7 +17,7 @@ function getData(language) {
         type: "GET",
         url: "https://ddragon.leagueoflegends.com/api/versions.json",
         success: function (patch) {
-            console.log("current patch: " + patch[0] + language);
+            console.log("current patch: " + patch[0]);
 
             // Get champion data.
             $.ajax({
@@ -137,6 +137,7 @@ function searchChamp() {
             textID.toUpperCase().startsWith(filter)
         ) {
             champ[i].classList.remove("hide");
+            $(".pagination").add("hide");
         } else {
             champ[i].classList.add("hide");
         }
