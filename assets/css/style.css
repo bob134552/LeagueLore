@@ -80,12 +80,25 @@ body {
     width: 100%;
 }
 
-.search {
-  padding-bottom: 15px;
+.champ-search {
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 38px;
+    width: 100%;
 }
 
-.search input {
-    width: 100%;
+.search-box {
+    position: relative;
+}
+
+
+.mag{
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  font-size: 22px;
+  color: #5078ef;
+  cursor: pointer;
 }
 
 /*---Grid---*/

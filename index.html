@@ -63,33 +63,36 @@
 				</div>
 
 				<div class="col-xs-8 mx-1">
-                <form onsubmit="getData(searchChamp);return false">
-					<input class="champ-search" id="champ-search" type="text" placeholder="Enter Champion Name"/></form>
-                    <h7 class="results text-center"></h7>
-            </div>
+					<div class="search-box">
+						<form onsubmit="getData(searchChamp);return false" autocomplete="off">
+							<input class="champ-search" id="champ-search" type="text" placeholder="Enter Champion Name"/><i class="fas fa-search mag"></i>
+						</form>
+					</div>
+					<h7 class="results text-center"></h7>
+				</div>
+			</div>
+
+
+			<div class="row justify-content-center">
+				<div class="col-xs-10">
+					<div id="champ-grid" class="champ-grid">
+					</div>
+					<br>
+					<br>
 				</div>
 
-
-				<div class="row justify-content-center">
-					<div class="col-xs-10">
-						<div id="champ-grid" class="champ-grid">
-						</div>
-						<br>
-						<br>
-				</div>
-
-						<div class="row justify-content-center pagination-buttons">
-							<div class="col-xs-4">
-								<div class="pagination">
-									<div class="btn button prev disabled">&lt;&lt;&lt;</div>
-									<div class="page text-white">
-										<span class="page-num">1</span>
-									</div>
-									<div class="btn button next">&gt;&gt;&gt;</div>
+					<div class="row justify-content-center pagination-buttons">
+						<div class="col-xs-4">
+							<div class="pagination">
+								<div class="btn button prev disabled">&lt;&lt;&lt;</div>
+								<div class="page text-white">
+									<span class="page-num">1</span>
 								</div>
+								<div class="btn button next">&gt;&gt;&gt;</div>
 							</div>
 						</div>
 					</div>
+				</div>
 		</section>
 
 		<section class="container-fluid" id="lore-page"></section>

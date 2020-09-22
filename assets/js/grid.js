@@ -36,6 +36,8 @@ $(document).ready(getData(buildGrid));
 // Build champion icon display.
 function buildGrid(champData, patch) {
     let champArray = Array.from(Object.values(champData.data));
+    let champAutoArray = champArray.map(({ name }) => name);;
+    console.log(champAutoArray);
     let el = " ";
     let index = 1;
     let galleryItems = document.querySelector(".champ-grid").children;
@@ -61,6 +63,7 @@ function buildGrid(champData, patch) {
     // Add listener to check window size.
     setMaxItem(windowSize);
     windowSize.addListener(setMaxItem);
+
 
     // Display each entry from external json
     for (let i = 0; i < champArray.length; i++) {
@@ -90,6 +93,9 @@ function buildGrid(champData, patch) {
         showItems(champArray, galleryItems, index, maxItem, page);
         check(index, pagination, next, prev);
     };
+
+    //Call autocomplete when user searchs for a champion.
+    autocomplete(document.getElementById("champ-search"), champAutoArray);
 }
 
 //Add css class to current images being shown and hide class to images being hidden
@@ -125,8 +131,6 @@ function searchChamp(champions) {
     let champArray = Array.from(Object.values(champions.data));
     let textName, textID;
 
-    console.log(champArray);
-
     for (i = 0; i < champArray.length; i++) {
         textName = champArray[i].name;
         textID = champArray[i].id;
@@ -141,4 +145,75 @@ function searchChamp(champions) {
             $(".results").html(`Sorry, no results for ${input.value}.`)
         }
     }
+}
+
+
+function autocomplete(inp, arr) {
+    var currentFocus;
+    inp.addEventListener("input", function (e) {
+        var a, b, i, val = this.value;
+        closeAllLists();
+        if (!val) { return false; }
+        currentFocus = -1;
+        a = document.createElement("div");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        this.parentNode.appendChild(a);
+
+
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                b = document.createElement("div");
+                b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                b.innerHTML += arr[i].substr(val.length);
+                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+
+                b.addEventListener("click", function (e) {
+                    inp.value = this.getElementsByTagName("input")[0].value;
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
+    });
+
+    inp.addEventListener("keydown", function (e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) { //down key press
+            currentFocus++;
+            addActive(x);
+        } else if (e.keyCode == 38) { //up key press
+            currentFocus--;
+            addActive(x);
+        } else if (currentFocus > -1) {
+                if (x) x[currentFocus].click();
+            }
+    });
+
+    function addActive(x) {
+        if (!x) return false;
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        x[currentFocus].classList.add("autocomplete-active");
+    }
+
+    function removeActive(x) {
+        for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+        }
+    }
+    function closeAllLists(elmnt) {
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+            if (elmnt != x[i] && elmnt != inp) {
+                x[i].parentNode.removeChild(x[i]);
+            }
+        }
+    }
+
+    document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+    });
 }
