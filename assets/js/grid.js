@@ -1,14 +1,14 @@
 let language = $(`option[name="default"]`).val();
 
-$('select[name="dropdown"]').change(function() {
-    language= $(this).val();
+$('select[name="dropdown"]').change(function () {
+    language = $(this).val();
     $(".champ-grid").html(" ");
-    getData(language);
+    getData(buildGrid);
 });
 
 
 
-function getData(language) {
+function getData(cb) {
     $("#lore-page").fadeOut();
     $("#video").fadeOut();
 
@@ -24,14 +24,14 @@ function getData(language) {
                 type: "GET",
                 url: `http://ddragon.leagueoflegends.com/cdn/${patch[0]}/data/${language}/champion.json`,
                 success: function (champions) {
-                    buildGrid(champions, patch[0]);
+                    cb(champions, patch[0]);
                 },
             });
         },
     });
 };
 
-$(document).ready(getData(language));
+$(document).ready(getData(buildGrid));
 
 // Build champion icon display.
 function buildGrid(champData, patch) {
@@ -104,7 +104,7 @@ function showItems(champArray, galleryItems, index, maxItem, page) {
     }
 }
 
-function check(index, pagination, next, prev, page) {
+function check(index, pagination, next, prev) {
     if (index == pagination) {
         next.classList.add("disabled");
     } else {
@@ -119,27 +119,26 @@ function check(index, pagination, next, prev, page) {
 }
 
 //Search through images to find specified champion.
-function searchChamp() {
+function searchChamp(champions) {
     let input = document.getElementById("champ-search");
     let filter = input.value.toUpperCase();
-    let champList = document.getElementById("champ-grid");
-    let champ = champList.getElementsByClassName("item");
-    let textName, textID, image;
+    let champArray = Array.from(Object.values(champions.data));
+    let textName, textID;
 
-    for (i = 0; i < champ.length; i++) {
-        image = champ[i].getElementsByTagName("img")[0];
-        textName = image.name;
-        textID = image.id;
+    console.log(champArray);
+
+    for (i = 0; i < champArray.length; i++) {
+        textName = champArray[i].name;
+        textID = champArray[i].id;
 
         //Checks if either the name or id of the element begins with what the user is searching for.
         if (
             textName.toUpperCase().startsWith(filter) ||
             textID.toUpperCase().startsWith(filter)
         ) {
-            champ[i].classList.remove("hide");
-            $(".pagination").add("hide");
+            champPage(textID, textName);
         } else {
-            champ[i].classList.add("hide");
+            $(".results").html(`Sorry, no results for ${input.value}.`)
         }
     }
 }
