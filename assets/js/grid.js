@@ -37,7 +37,6 @@ $(document).ready(getData(buildGrid));
 function buildGrid(champData, patch) {
     let champArray = Array.from(Object.values(champData.data));
     let champAutoArray = champArray.map(({ name }) => name);;
-    console.log(champAutoArray);
     let el = " ";
     let index = 1;
     let galleryItems = document.querySelector(".champ-grid").children;
@@ -142,7 +141,7 @@ function searchChamp(champions) {
         ) {
             champPage(textID, textName);
         } else {
-            $(".results").html(`Sorry, no results for ${input.value}.`)
+            $(".results").html(`Sorry, no results for ${input.value}.`).fadeIn("slow");
         }
     }
 }

@@ -91,7 +91,6 @@ body {
     position: relative;
 }
 
-
 .mag{
   position: absolute;
   top: 5px;
@@ -101,6 +100,9 @@ body {
   cursor: pointer;
 }
 
+.results {
+    display: none;
+}
 /*---Grid---*/
 
 .champ-grid {
