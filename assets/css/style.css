@@ -106,7 +106,7 @@ body {
 /*---Grid---*/
 
 .champ-grid {
-  width: 80%;
+  width: 113%;
   margin: auto;
 }
 
@@ -317,12 +317,7 @@ textarea.form-input {
   }
 
   .champ-grid {
-    width: 90%;
-    margin: auto;
-  }
-
-  .search {
-    width: 70vw;
+    width: 100%;
     margin: auto;
   }
 

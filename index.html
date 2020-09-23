@@ -33,7 +33,7 @@
 			</div>
 		</section>
 
-		<section class="container-fluid champions">
+		<section class="container champions">
 			<div class="row justify-content-center search">
 				<div class="col-xs-4 mx-1 language">
 					<select name="dropdown" id="dropdown">
@@ -50,7 +50,6 @@
                     <option value="it_IT">Italian</option>
                     <option value="ja_JP">Japanese</option>
                     <option value="ko_KR">Korean</option>
-                    <option value="ms_MY">Malay</option>
                     <option value="pl_PL">Polish</option>
                     <option value="pt_BR">Portuguese</option>
                     <option value="ro_RO">Romanian</option>
@@ -65,7 +64,7 @@
 				<div class="col-xs-8 mx-1">
 					<div class="search-box">
 						<form onsubmit="getData(searchChamp);return false" autocomplete="off">
-							<input class="champ-search" id="champ-search" type="text" placeholder="Enter Champion Name"/><i class="fas fa-search mag"></i>
+							<input class="champ-search" id="champ-search" type="text" placeholder="Enter Champion Name"/><i type="submit" class="fas fa-search mag"></i>
 						</form>
 					</div>
 					<h7 class="results text-center"></h7>
@@ -95,7 +94,7 @@
 				</div>
 		</section>
 
-		<section class="container-fluid" id="lore-page"></section>
+		<section class="container" id="lore-page"></section>
 		<section class="container" id="video"></section>
 	</div>
 	<footer></footer>

@@ -4,7 +4,8 @@ function champPage(champId, champName) {
   $("div.callout").fadeOut();
 
   //Add hash containing champions name.
-    window.location.hash = champName;
+    document.title = `League Lore - ${champName}`;
+    window.location.hash = `/${champName}`;
   
     // Get current patch version.
   $.ajax({
@@ -28,10 +29,10 @@ function champPage(champId, champName) {
             .html(
               `
               <div class = "container">
-               <h2 class="text-center name">${champName}, <span style="text-transform: capitalize;">${
+               <h4 class="text-center name">${champName}, <span style="text-transform: capitalize;">${
                 champion.title
               }</span></p>
-               </h2>
+               </h4>
             <img class = "splash" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg">
             <div class = "container">
             <div class = "row">

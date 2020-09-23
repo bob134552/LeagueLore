@@ -9,8 +9,8 @@ $('select[name="dropdown"]').change(function () {
 
 
 function getData(cb) {
-    $("#lore-page").fadeOut();
-    $("#video").fadeOut();
+    $("#lore-page").hide();
+    $("#video").hide();
 
     // Get current patch version.
     $.ajax({
