@@ -37,7 +37,7 @@
 			<div class="row justify-content-center search">
 				<div class="col-xs-4 mx-1 language">
 					<select name="dropdown" id="dropdown">
-                    <option value="en_GB" name="default">English</option>
+                    <option value="en_GB" id="default">English</option>
                     <option value="zh_CN">Chinese (China)</option>
                     <option value="zh_MY">Chinese (Malaysia)</option>
                     <option value="zh_TW">Chinese (Taiwan)</option>
@@ -64,10 +64,10 @@
 				<div class="col-xs-8 mx-1">
 					<div class="search-box">
 						<form onsubmit="getData(searchChamp);return false" autocomplete="off">
-							<input class="champ-search" id="champ-search" type="text" placeholder="Enter Champion Name"/><i type="submit" class="fas fa-search mag"></i>
+							<input class="champ-search" id="champ-search" type="text" placeholder="Enter Champion Name" required/><button type="submit" class="mag"><i class="fas fa-search"></i></button>
 						</form>
 					</div>
-					<h7 class="results text-center"></h7>
+					<p class="results text-center"></p>
 				</div>
 			</div>
 

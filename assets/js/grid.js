@@ -1,4 +1,4 @@
-let language = $(`option[name="default"]`).val();
+let language = $(`option[id="default"]`).val();
 
 $('select[name="dropdown"]').change(function () {
     language = $(this).val();
@@ -67,10 +67,10 @@ function buildGrid(champData, patch) {
     // Display each entry from external json
     for (let i = 0; i < champArray.length; i++) {
         if (i < maxItem) {
-            el += `<div class="item"><img onClick="return champPage(this.id, this.name)" id="${champArray[i].id}" name="${champArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${champArray[i].id}.png" alt="${champArray[i].id}"><span class="champ-name">${champArray[i].name}</span></div>`;
+            el += `<div class="item"><img onClick="return champPage(this.id, this.alt)" id="${champArray[i].id}" src="http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${champArray[i].id}.png" alt="${champArray[i].name}"><br><span class="champ-name">${champArray[i].name}</span></div>`;
             document.getElementById("champ-grid").innerHTML = el;
         } else {
-            el += `<div class="item hide"><img onClick="return champPage(this.id, this.name)" id="${champArray[i].id}" name="${champArray[i].name}" src="http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${champArray[i].id}.png" alt="${champArray[i].id}"><span class="champ-name">${champArray[i].name}</span></div>`;
+            el += `<div class="item hide"><img onClick="return champPage(this.id, this.alt)" id="${champArray[i].id}" src="http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${champArray[i].id}.png" alt="${champArray[i].name}"><br><span class="champ-name">${champArray[i].name}</span></div>`;
             document.getElementById("champ-grid").innerHTML = el;
         }
     }

@@ -31,9 +31,9 @@ function champPage(champId, champName) {
               <div class = "container">
                <h4 class="text-center name">${champName}, <span style="text-transform: capitalize;">${
                 champion.title
-              }</span></p>
+              }</span>
                </h4>
-            <img class = "splash" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg">
+            <img class = "splash" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg" alt="${champName}">
             <div class = "container">
             <div class = "row">
             <div class = "col-12">
@@ -83,27 +83,27 @@ function champPage(champId, champName) {
             <div class = "row">
             <div class = "col-xs-12 ml-2" id = "passive-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
               patch[0]
-            }/img/passive/${champion.passive.image.full}"><p id = "passive"><strong>${champion.passive.name}</strong><br>${
+            }/img/passive/${champion.passive.image.full}" alt="${champName} passive"><p id = "passive"><strong>${champion.passive.name}</strong><br>${
                 champion.passive.description
               }</p></div><br>
             <div class = "col-xs-12 ml-2" id = "q-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
               patch[0]
-            }/img/spell/${abilityQ.image.full}"><p id = "q-ability"><strong>${
+            }/img/spell/${abilityQ.image.full}" alt="${champName} q"><p id = "q-ability"><strong>${
               abilityQ.name
             }</strong><br>${abilityQ.description}</p></div><br>
             <div class = "col-xs-12 ml-2" id = "w-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
               patch[0]
-            }/img/spell/${abilityW.image.full}"><p id = "w-ability"><strong>${
+            }/img/spell/${abilityW.image.full}" alt="${champName} w"><p id = "w-ability"><strong>${
               abilityW.name
             }</strong><br>${abilityW.description}</p></div><br>
             <div class = "col-xs-12 ml-2" id = "e-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
               patch[0]
-            }/img/spell/${abilityE.image.full}"><p id = "e-ability"><strong>${
+            }/img/spell/${abilityE.image.full}" alt="${champName} e"><p id = "e-ability"><strong>${
               abilityE.name
             }</strong><br>${abilityE.description}</p></div><br>
             <div class = "col-xs-12 ml-2" id = "r-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
               patch[0]
-            }/img/spell/${abilityR.image.full}"><p id = "r-ability"><strong>${
+            }/img/spell/${abilityR.image.full}" alt="${champName} r"><p id = "r-ability"><strong>${
               abilityR.name
             }</strong><br>${abilityR.description}</p></div>
             <br>
