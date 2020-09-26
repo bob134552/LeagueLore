@@ -146,14 +146,7 @@ function searchChamp(champions) {
     }
 }
 
-//Add active class to relevant names.
-function addActive(x, currentFocus) {
-    if (!x) return false;
-    removeActive(x);
-    if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = (x.length - 1);
-    x[currentFocus].classList.add("autocomplete-active");
-}
+
 
 //Removes active class from non relevant names.
 function removeActive(x) {
@@ -203,6 +196,14 @@ function autocomplete(inp, arr) {
         }
     }
 
+    //Add active class to relevant names.
+    function addActive(x, currentFocus) {
+        if (!x) return false;
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        x[currentFocus].classList.add("autocomplete-active");
+    }
     //Scroll up and down list.
     inp.addEventListener("keydown", function (e) {
         var x = document.getElementById(this.id + "autocomplete-list");

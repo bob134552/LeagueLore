@@ -29,10 +29,10 @@ function champPage(champId, champName) {
             .html(
               `
               <div class = "container">
-               <h4 class="text-center name">${champName}, <span style="text-transform: capitalize;">${
+               <h1 class="text-center name">${champName}, <span style="text-transform: capitalize;">${
                 champion.title
               }</span>
-               </h4>
+               </h1>
             <img class = "splash" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg" alt="${champName}">
             <div class = "container">
             <div class = "row">
