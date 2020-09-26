@@ -43,7 +43,7 @@ function buildGrid(champData, patch) {
     let prev = document.querySelector(".prev");
     let next = document.querySelector(".next");
     let page = document.querySelector(".page-num");
-    let windowSize = window.matchMedia("(max-width: 700px)");
+    let windowSize = window.matchMedia("(max-width: 768px)");
     let maxItem, pagination;
 
     function setMaxItem(windowSize) {
@@ -67,10 +67,10 @@ function buildGrid(champData, patch) {
     // Display each entry from external json
     for (let i = 0; i < champArray.length; i++) {
         if (i < maxItem) {
-            el += `<div class="item"><img onClick="return champPage(this.id, this.alt)" id="${champArray[i].id}" src="http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${champArray[i].id}.png" alt="${champArray[i].name}"><br><span class="champ-name">${champArray[i].name}</span></div>`;
+            el += `<div class="item text-md-center"><img onClick="return champPage(this.id, this.alt)" id="${champArray[i].id}" src="http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${champArray[i].id}.png" alt="${champArray[i].name}"><br><span class="champ-name">${champArray[i].name}</span></div>`;
             document.getElementById("champ-grid").innerHTML = el;
         } else {
-            el += `<div class="item hide"><img onClick="return champPage(this.id, this.alt)" id="${champArray[i].id}" src="http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${champArray[i].id}.png" alt="${champArray[i].name}"><br><span class="champ-name">${champArray[i].name}</span></div>`;
+            el += `<div class="item hide text-md-center"><img onClick="return champPage(this.id, this.alt)" id="${champArray[i].id}" src="http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${champArray[i].id}.png" alt="${champArray[i].name}"><br><span class="champ-name">${champArray[i].name}</span></div>`;
             document.getElementById("champ-grid").innerHTML = el;
         }
     }
@@ -109,6 +109,7 @@ function showItems(champArray, galleryItems, index, maxItem, page) {
     }
 }
 
+//Check index to enable or disable next and previous buttons.
 function check(index, pagination, next, prev) {
     if (index == pagination) {
         next.classList.add("disabled");
@@ -135,18 +136,34 @@ function searchChamp(champions) {
         textID = champArray[i].id;
 
         //Checks if either the name or id of the element begins with what the user is searching for.
-        if (
-            textName.toUpperCase().startsWith(filter) ||
-            textID.toUpperCase().startsWith(filter)
-        ) {
+        if (textName.toUpperCase().startsWith(filter) ||
+            textID.toUpperCase().startsWith(filter)) {
             champPage(textID, textName);
-        } else {
-            $(".results").html(`Sorry, no results for ${input.value}.`).fadeIn("slow");
+        }
+        else {
+            $(".results").html(`Sorry, no results for ${input.value}.`).delay(2000).fadeIn("slow");
         }
     }
 }
 
+//Add active class to relevant names.
+function addActive(x, currentFocus) {
+    if (!x) return false;
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    x[currentFocus].classList.add("autocomplete-active");
+}
 
+//Removes active class from non relevant names.
+function removeActive(x) {
+    for (var i = 0; i < x.length; i++) {
+        x[i].classList.remove("autocomplete-active");
+    }
+}
+
+
+//Enables autocomplete when typing in a champions name.
 function autocomplete(inp, arr) {
     var currentFocus;
     inp.addEventListener("input", function (e) {
@@ -159,7 +176,7 @@ function autocomplete(inp, arr) {
         a.setAttribute("class", "autocomplete-items");
         this.parentNode.appendChild(a);
 
-
+        //Creates dropdown item.
         for (i = 0; i < arr.length; i++) {
             if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
                 b = document.createElement("div");
@@ -176,33 +193,7 @@ function autocomplete(inp, arr) {
         }
     });
 
-    inp.addEventListener("keydown", function (e) {
-        var x = document.getElementById(this.id + "autocomplete-list");
-        if (x) x = x.getElementsByTagName("div");
-        if (e.keyCode == 40) { //down key press
-            currentFocus++;
-            addActive(x);
-        } else if (e.keyCode == 38) { //up key press
-            currentFocus--;
-            addActive(x);
-        } else if (currentFocus > -1) {
-                if (x) x[currentFocus].click();
-            }
-    });
-
-    function addActive(x) {
-        if (!x) return false;
-        removeActive(x);
-        if (currentFocus >= x.length) currentFocus = 0;
-        if (currentFocus < 0) currentFocus = (x.length - 1);
-        x[currentFocus].classList.add("autocomplete-active");
-    }
-
-    function removeActive(x) {
-        for (var i = 0; i < x.length; i++) {
-            x[i].classList.remove("autocomplete-active");
-        }
-    }
+    //Removes div elements when they don't match input or dont match drop down.
     function closeAllLists(elmnt) {
         var x = document.getElementsByClassName("autocomplete-items");
         for (var i = 0; i < x.length; i++) {
@@ -211,6 +202,24 @@ function autocomplete(inp, arr) {
             }
         }
     }
+
+    //Scroll up and down list.
+    inp.addEventListener("keydown", function (e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) { //down key press
+            currentFocus++;
+            addActive(x);
+        } else if (e.keyCode == 38) { //up key press
+            currentFocus--;
+            addActive(x, currentFocus);
+        } else if (e.keyCode == 13) {
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault();
+        } else if (currentFocus > -1) {
+            if (x) x[currentFocus].click();
+        }
+    });
 
     document.addEventListener("click", function (e) {
         closeAllLists(e.target);

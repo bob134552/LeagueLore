@@ -87,6 +87,10 @@ body {
     width: 100%;
 }
 
+.champ-search:focus {
+    outline: 0px;
+}
+
 .search-box {
     position: relative;
 }
@@ -119,7 +123,7 @@ body {
   color: #000000;
 }
 .autocomplete-items div {
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
   background-color: #fff;
   border-bottom: 1px solid #d4d4d4;
@@ -303,7 +307,7 @@ textarea.form-input {
 
 /*---Media Queries---*/
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .pagination-buttons {
     display: block;
   }
@@ -311,11 +315,11 @@ textarea.form-input {
     .champ-name {
         font-size: 0.7em !important;
         position: absolute;
-        bottom: -20px;
+        bottom: -30px;
     }
 
 .item {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
   .item img {
@@ -342,7 +346,7 @@ textarea.form-input {
   #defensebar,
   #magicbar,
   #difficultybar {
-    font-size: 10px;
+    font-size: 8px;
   }
 
   .champions {
