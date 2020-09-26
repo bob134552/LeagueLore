@@ -197,7 +197,7 @@ function autocomplete(inp, arr) {
     }
 
     //Add active class to relevant names.
-    function addActive(x, currentFocus) {
+    function addActive(x) {
         if (!x) return false;
         removeActive(x);
         if (currentFocus >= x.length) currentFocus = 0;
@@ -213,10 +213,7 @@ function autocomplete(inp, arr) {
             addActive(x);
         } else if (e.keyCode == 38) { //up key press
             currentFocus--;
-            addActive(x, currentFocus);
-        } else if (e.keyCode == 13) {
-            /*If the ENTER key is pressed, prevent the form from being submitted,*/
-            e.preventDefault();
+            addActive(x);
         } else if (currentFocus > -1) {
             if (x) x[currentFocus].click();
         }
