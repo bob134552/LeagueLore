@@ -2,12 +2,15 @@
 
 # League Lore.
 
+A website for users to find more information about champions in League of Legends. The site is designed for beginner players 
+to get basic information on any champion in the game.  There is an option for different languages to allow for a larger variety 
+of users.
 
 # Demo
 
 ![Responsive-Mockup]()
 
-A live version of the site can be found [here](https://bob134552.github.io/). 
+A live version of the site can be found [here](https://bob134552.github.io/leaguelore/). 
 
 # UX
 
@@ -20,6 +23,7 @@ Balsamiq was used to create the following wireframe:
 
 
 ## The Scope Plane
+
 
 
 ## The Structure Plane

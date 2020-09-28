@@ -1,5 +1,7 @@
+//Get language from index.html
 let language = $(`option[id="default"]`).val();
 
+//Remakes grid if different language is selected
 $('select[name="dropdown"]').change(function () {
     language = $(this).val();
     $(".champ-grid").html(" ");
@@ -7,7 +9,7 @@ $('select[name="dropdown"]').change(function () {
 });
 
 
-
+//Gets json data.
 function getData(cb) {
     $("#lore-page").hide();
     $("#video").hide();
@@ -46,6 +48,7 @@ function buildGrid(champData, patch) {
     let windowSize = window.matchMedia("(max-width: 768px)");
     let maxItem, pagination;
 
+    //Sets maxItem parameter based on window size.
     function setMaxItem(windowSize) {
         if (windowSize.matches) {
             maxItem = 20;
@@ -74,7 +77,7 @@ function buildGrid(champData, patch) {
             document.getElementById("champ-grid").innerHTML = el;
         }
     }
-    //Set up pagination buttons
+    //Set up pagination buttons by adding listeners to each
     prev.addEventListener("click", function () {
         index--;
         check(index, pagination, next, prev);
@@ -204,6 +207,7 @@ function autocomplete(inp, arr) {
         if (currentFocus < 0) currentFocus = (x.length - 1);
         x[currentFocus].classList.add("autocomplete-active");
     }
+
     //Scroll up and down list.
     inp.addEventListener("keydown", function (e) {
         var x = document.getElementById(this.id + "autocomplete-list");

@@ -1,35 +1,52 @@
 /*---Font---*/
 
+@font-face {
+    font-family: Aquire;
+    src: url("assets/font/AquireLight.otf") format("opentype");
+}
+
 /*----Body styling---*/
 html, body {
   height: 100%;
 }
-body {
-  display: flex;
-  flex-direction: column;
-}
+
 .content {
   flex: 1 0 auto;
 }
+
 footer {
   flex-shrink: 0;
   padding: 20px;
   background: #061c25;
 }
 
-body {
+body {  
+  display: flex;
+  flex-direction: column;
   padding: 0;
   margin: 0;
   background: #161616;
-  border-top: 3rem solid #061c25;
   color: #fff;
 }
 
 /*---Navbar---*/
 
+.navandcallout {
+    background-image: url("../images/backgroundlol.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%, 100%;
+    margin-bottom: 2rem;
+}
+
+.nav  {
+    background-color: #061c25;
+    height: 3rem;
+    margin-bottom: 2rem;
+}
+
 .nav img {
   position: absolute;
-  top: -3rem;
+  top: 0;
   left: 0;
   height: 3rem;
   width: 3rem;
@@ -38,7 +55,7 @@ body {
 .nav ul {
   position: absolute;
   right: 0;
-  top: -2.5rem;
+  top: 0.4rem;
 }
 
 .nav ul li {
@@ -64,11 +81,14 @@ body {
   color: #fbbf01;
   font-size: 4rem;
   line-height: 0.8;
+  font-family: Aquire;
+  text-decoration: underline;
 }
 
 .blurb {
   color: #fbbf01;
   font-size: 1.5rem;
+  font-family: Aquire;
 }
 
 /*---Search Bar---*/
@@ -106,6 +126,8 @@ body {
     height: 19px;
 }
 
+/*---Auto complete styling---*/
+
 .autocomplete {
   position: relative;
   display: inline-block;
@@ -122,35 +144,39 @@ body {
   right: 0;
   color: #000000;
 }
+
 .autocomplete-items div {
   padding: 5px;
   cursor: pointer;
   background-color: #fff;
   border-bottom: 1px solid #d4d4d4;
 }
+
 .autocomplete-items div:hover {
-  background-color: dodgerblue;
+  background-color:rgb(60, 25, 117);
 }
+
 .autocomplete-active {
-  background-color: DodgerBlue !important;
+  background-color: rgb(60, 25, 117) !important;
   color: #ffffff;
 }
 
 .results {
     display: none;
 }
+
 /*---Grid---*/
 
 .champ-grid {
-  width: 113%;
+  width: 100%;
   margin: auto;
 }
 
 
 .item { 
     margin-left: 4px;
-  display: inline-block;
-  position: relative;
+    display: inline-block;
+    position: relative;
 }
 
 .item .champ-name {
@@ -234,6 +260,7 @@ body {
   overflow: hidden;
   max-width: 100%;
 }
+
 .embed-container iframe,
 .embed-container object,
 .embed-container embed {
@@ -308,9 +335,14 @@ textarea.form-input {
 /*---Media Queries---*/
 
 @media (max-width: 768px) {
-  .pagination-buttons {
-    display: block;
-  }
+  
+    .navandcallout {
+        margin-bottom: 1rem;
+    }
+
+    .pagination-buttons {
+        display: block;
+    }
     
     .champ-name {
         font-size: 0.7em !important;
@@ -318,38 +350,40 @@ textarea.form-input {
         bottom: -30px;
     }
 
-.item {
-    margin-bottom: 40px;
-}
+    .item {
+        margin-bottom: 40px;
+        margin-left: 6px;
+    }
 
-  .item img {
-      width: 60px;
-      height: 60px;
-  }
+    .item img {
+        width: 60px;
+        height: 60px;
+    }
 
-  .blurb {
-    font-size: 5vw;
-    padding-bottom: 1rem;
-    margin: auto;
-  }
+    .blurb {
+        font-size: 5vw;
+        padding-bottom: 1rem;
+        margin: auto;
+    }
 
-  .site-logo {
-    font-size: 6vw;
-  }
+    .site-logo {
+        font-size: 6vw;
+    }
 
-  .champ-grid {
-    width: 100%;
-    margin: auto;
-  }
+    .champ-grid {
+        width: 95%;
+        margin-left: 15px;
+        margin-right: 35px;
+    }
 
-  #attackbar,
-  #defensebar,
-  #magicbar,
-  #difficultybar {
-    font-size: 8px;
-  }
+    #attackbar,
+    #defensebar,
+    #magicbar,
+    #difficultybar {
+        font-size: 8px;
+    }
 
-  .champions {
-  margin-bottom:0;
-}
+    .champions {
+        margin-bottom:0;
+    }
 }
