@@ -2,7 +2,7 @@
 let language = $(`option[id="default"]`).val();
 
 //Remakes grid if different language is selected
-$('select[name="dropdown"]').change(function () {
+$('select[name="dropdown"]').change(function() {
     language = $(this).val();
     $(".champ-grid").html(" ");
     getData(buildGrid);
@@ -18,14 +18,14 @@ function getData(cb) {
     $.ajax({
         type: "GET",
         url: "https://ddragon.leagueoflegends.com/api/versions.json",
-        success: function (patch) {
+        success: function(patch) {
             console.log("current patch: " + patch[0]);
 
             // Get champion data.
             $.ajax({
                 type: "GET",
                 url: `http://ddragon.leagueoflegends.com/cdn/${patch[0]}/data/${language}/champion.json`,
-                success: function (champions) {
+                success: function(champions) {
                     cb(champions, patch[0]);
                 },
             });
@@ -38,7 +38,9 @@ $(document).ready(getData(buildGrid));
 // Build champion icon display.
 function buildGrid(champData, patch) {
     let champArray = Array.from(Object.values(champData.data));
-    let champAutoArray = champArray.map(({ name }) => name);;
+    let champAutoArray = champArray.map(({
+        name
+    }) => name);;
     let el = " ";
     let index = 1;
     let galleryItems = document.querySelector(".champ-grid").children;
@@ -78,20 +80,20 @@ function buildGrid(champData, patch) {
         }
     }
     //Set up pagination buttons by adding listeners to each
-    prev.addEventListener("click", function () {
+    prev.addEventListener("click", function() {
         index--;
         check(index, pagination, next, prev);
         showItems(champArray, galleryItems, index, maxItem, page);
     });
 
-    next.addEventListener("click", function () {
+    next.addEventListener("click", function() {
         index++;
         check(index, pagination, next, prev);
         showItems(champArray, galleryItems, index, maxItem, page);
     });
 
 
-    window.onload = function () {
+    window.onload = function() {
         showItems(champArray, galleryItems, index, maxItem, page);
         check(index, pagination, next, prev);
     };
@@ -142,8 +144,7 @@ function searchChamp(champions) {
         if (textName.toUpperCase().startsWith(filter) ||
             textID.toUpperCase().startsWith(filter)) {
             champPage(textID, textName);
-        }
-        else {
+        } else {
             $(".results").html(`Sorry, no results for ${input.value}.`).delay(2000).fadeIn("slow");
         }
     }
@@ -162,10 +163,12 @@ function removeActive(x) {
 //Enables autocomplete when typing in a champions name.
 function autocomplete(inp, arr) {
     var currentFocus;
-    inp.addEventListener("input", function (e) {
+    inp.addEventListener("input", function(e) {
         var a, b, i, val = this.value;
         closeAllLists();
-        if (!val) { return false; }
+        if (!val) {
+            return false;
+        }
         currentFocus = -1;
         a = document.createElement("div");
         a.setAttribute("id", this.id + "autocomplete-list");
@@ -180,7 +183,7 @@ function autocomplete(inp, arr) {
                 b.innerHTML += arr[i].substr(val.length);
                 b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
 
-                b.addEventListener("click", function (e) {
+                b.addEventListener("click", function(e) {
                     inp.value = this.getElementsByTagName("input")[0].value;
                     closeAllLists();
                 });
@@ -209,7 +212,7 @@ function autocomplete(inp, arr) {
     }
 
     //Scroll up and down list.
-    inp.addEventListener("keydown", function (e) {
+    inp.addEventListener("keydown", function(e) {
         var x = document.getElementById(this.id + "autocomplete-list");
         if (x) x = x.getElementsByTagName("div");
         if (e.keyCode == 40) { //down key press
@@ -223,7 +226,7 @@ function autocomplete(inp, arr) {
         }
     });
 
-    document.addEventListener("click", function (e) {
+    document.addEventListener("click", function(e) {
         closeAllLists(e.target);
     });
 }

@@ -1,244 +1,257 @@
 /*---Font---*/
 
 @font-face {
-    font-family: Aquire;
-    src: url("assets/font/AquireLight.otf") format("opentype");
+	font-family: Aquire;
+	src: url("assets/font/AquireLight.otf") format("opentype");
 }
 
+
 /*----Body styling---*/
-html, body {
-  height: 100%;
+
+html,
+body {
+	height: 100%;
 }
 
 .content {
-  flex: 1 0 auto;
+	flex: 1 0 auto;
 }
 
 footer {
-  flex-shrink: 0;
-  padding: 20px;
-  background: #061c25;
+	flex-shrink: 0;
+	padding: 20px;
+	background: #061c25;
 }
 
-body {  
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
-  background: #161616;
-  color: #fff;
+body {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	margin: 0;
+	background: #161616;
+	color: #fff;
 }
 
 /*---Navbar---*/
 
 .navandcallout {
-    background-image: url("../images/backgroundlol.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%, 100%;
-    margin-bottom: 2rem;
+	background-image: url("../images/backgroundlol.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	margin-bottom: 2rem;
 }
 
-.nav  {
-    background-color: #061c25;
-    height: 3rem;
-    margin-bottom: 2rem;
+.nav {
+	background-color: #061c25;
+	height: 3rem;
+	margin-bottom: 2rem;
 }
 
 .nav img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 3rem;
-  width: 3rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 3rem;
+	width: 3rem;
 }
 
 .nav ul {
-  position: absolute;
-  right: 0;
-  top: 0.4rem;
+	position: absolute;
+	right: 0;
+	top: 0.4rem;
 }
 
 .nav ul li {
-  list-style: none;
-  display: inline-block;
-  margin-left: 10px;
-  margin-right: 10px;
-  text-decoration: none;
-  font-size: 1.5rem;
+	list-style: none;
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+	text-decoration: none;
+	font-size: 1.5rem;
 }
 
 .icon {
-  color: #fbbf01;
+	color: #fbbf01;
 }
+
 
 /*---Site logo---*/
 
 .callout {
-    width: 100%;
+	width: 100%;
 }
 
 .site-logo {
-  color: #fbbf01;
-  font-size: 4rem;
-  line-height: 0.8;
-  font-family: Aquire;
-  text-decoration: underline;
+	color: #fbbf01;
+	font-size: 4rem;
+	line-height: 0.8;
+	font-family: Aquire;
+	text-decoration: underline;
 }
 
 .blurb {
-  color: #fbbf01;
-  font-size: 1.5rem;
-  font-family: Aquire;
+	color: #fbbf01;
+	font-size: 1.5rem;
+	font-family: Aquire;
 }
+
 
 /*---Search Bar---*/
 
 #dropdown {
-    margin-right: 19px;
-    margin-bottom: 7px;
-    height: 30px;
-    width: 100%;
+	margin-right: 19px;
+	margin-bottom: 7px;
+	height: 30px;
+	width: 100%;
 }
 
 .champ-search {
-    font-size: 16px;
-    padding-left: 20px;
-    padding-right: 38px;
-    width: 100%;
+	font-size: 16px;
+	padding-left: 20px;
+	padding-right: 38px;
+	width: 100%;
 }
 
 .champ-search:focus {
-    outline: 0px;
+	outline: 0px;
 }
 
 .search-box {
-    position: relative;
+	position: relative;
 }
 
-.mag{
-    position: absolute;
-    top: 2px;
-    right: 3px;
-    font-size: 18px;
-    color: #5078ef;
-    cursor: pointer;
-    border: 0;
-    height: 19px;
+.mag {
+	position: absolute;
+	top: 2px;
+	right: 3px;
+	font-size: 18px;
+	color: #5078ef;
+	cursor: pointer;
+	border: 0;
+	height: 19px;
 }
+
 
 /*---Auto complete styling---*/
 
 .autocomplete {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  top: 100%;
-  left: 0;
-  right: 0;
-  color: #000000;
+	position: absolute;
+	border: 1px solid #d4d4d4;
+	border-bottom: none;
+	border-top: none;
+	z-index: 99;
+	top: 100%;
+	left: 0;
+	right: 0;
+	color: #000000;
 }
 
 .autocomplete-items div {
-  padding: 5px;
-  cursor: pointer;
-  background-color: #fff;
-  border-bottom: 1px solid #d4d4d4;
+	padding: 5px;
+	cursor: pointer;
+	background-color: #fff;
+	border-bottom: 1px solid #d4d4d4;
 }
 
 .autocomplete-items div:hover {
-  background-color:rgb(60, 25, 117);
+	background-color: rgb(60, 25, 117);
 }
 
 .autocomplete-active {
-  background-color: rgb(60, 25, 117) !important;
-  color: #ffffff;
+	background-color: rgb(60, 25, 117) !important;
+	color: #ffffff;
 }
 
 .results {
-    display: none;
+	display: none;
 }
+
 
 /*---Grid---*/
 
 .champ-grid {
-  width: 100%;
-  margin: auto;
+	width: 100%;
+	margin: auto;
 }
 
-
-.item { 
-    margin-left: 4px;
-    display: inline-block;
-    position: relative;
+.item {
+	margin-left: 4px;
+	display: inline-block;
+	position: relative;
 }
 
 .item .champ-name {
-  color: white;
-  font-size: 0.9em;
-  margin-left: 4px;
-  overflow: hidden;
+	color: white;
+	font-size: 0.9em;
+	margin-left: 4px;
+	overflow: hidden;
 }
 
 .hide {
-  display: none !important;
+	display: none !important;
 }
 
 .pagination-buttons {
-  margin: auto;
-  display: none;
+	margin: auto;
+	display: none;
 }
 
 .page-num {
-  position: relative;
-  top: 6px;
+	position: relative;
+	top: 6px;
 }
 
 .button {
-  color: #fff;
-  text-decoration: underline;
+	color: #fff;
+	text-decoration: underline;
 }
 
 .button:hover {
-  color: rgb(0, 162, 255);
-  text-decoration: underline;
+	color: rgb(0, 162, 255);
+	text-decoration: underline;
 }
 
 .prev.disabled,
 .next.disabled {
-  display: none;
+	display: none;
 }
+
 
 /*---Lore page---*/
 
+.stat-title {
+	font-size: 20px;
+	text-decoration: underline;
+	color: goldenrod;
+}
+
 .splash {
-  width: 100%;
-  object-fit: cover;
-  margin-left: 15px;
-  margin-right: 15px;
+	width: 100%;
+	object-fit: cover;
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
 .stats-bar {
-  height: 28px;
-  margin-top: 4px;
+	height: 28px;
+	margin-top: 4px;
 }
 
 #attackbar,
 #defensebar,
 #magicbar,
 #difficultybar {
-  font-size: 20px;
-  white-space: nowrap;
+	font-size: 20px;
+	white-space: nowrap;
 }
 
 .name {
-  color: gold;
+	color: gold;
 }
 
 #passive-image img,
@@ -246,144 +259,162 @@ body {
 #w-ability-image img,
 #e-ability-image img,
 #r-ability-image img {
-  width: 60px;
-  height: 60px;
-  margin-top: 3px;
+	width: 60px;
+	height: 60px;
+	margin-top: 3px;
 }
+
 
 /*---Youtube Video---*/
 
 .embed-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	max-width: 100%;
 }
 
 .embed-container iframe,
 .embed-container object,
 .embed-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 #video {
-  padding-bottom: 3rem;
-  width: 100%;
+	padding-bottom: 3rem;
+	width: 100%;
 }
+
 
 /*---Contact form---*/
 
 .email img {
-    width: 100%;
-    border-radius: 20px;
-    border: 1px solid coral;
+	width: 100%;
+	border-radius: 20px;
+	border: 1px solid coral;
 }
 
 form {
-  display: block;
+	display: block;
 }
 
 .form-idea {
-  padding-top: 30px;
-  min-height: 240px;
-  margin: 0 auto;
-  max-width: 100%;
+	padding-top: 30px;
+	min-height: 240px;
+	margin: 0 auto;
+	max-width: 100%;
 }
 
 .form-input {
-  display: block;
-  width: 100%;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 5px;
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-top: 5px;
 }
 
 textarea.form-input {
-  height: auto;
+	height: auto;
 }
 
 .center-block {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .form-input button {
-  margin-top: 5px;
+	margin-top: 5px;
 }
 
 .btn-submit {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-  margin-top: 5px;
+	color: #fff;
+	background-color: #007bff;
+	border-color: #007bff;
+	margin-top: 5px;
 }
-
 
 
 /*---Media Queries---*/
 
 @media (max-width: 768px) {
-  
-    .navandcallout {
-        margin-bottom: 1rem;
-    }
 
-    .pagination-buttons {
-        display: block;
-    }
+	.navandcallout {
+		margin-bottom: 1rem;
+	}
+
+	.pagination-buttons {
+		display: block;
+	}
+
+	.champ-name {
+		font-size: 0.7em !important;
+		position: absolute;
+		bottom: -30px;
+	}
+
+	.item {
+		margin-bottom: 40px;
+		margin-left: 6px;
+	}
+
+	.item img {
+		width: 60px;
+		height: 60px;
+	}
+
+	.blurb {
+		font-size: 5vw;
+		padding-bottom: 1rem;
+		margin: auto;
+	}
+
+	.site-logo {
+		font-size: 6vw;
+	}
+
+	.champ-grid {
+		width: 95%;
+		margin-left: 15px;
+		margin-right: 35px;
+	}
+
+	#attackbar,
+	#defensebar,
+	#magicbar,
+	#difficultybar {
+		font-size: 8px;
+	}
+
+	.champions {
+		margin-bottom: 0;
+	}
+}
+
+@media (min-width: 992px) {
+
+	.navandcallout {
+		height: 40vh;
+		background-image: url("../images/riven.jpg"), url("../images/yi.jpg"), url("../images/backgroundlol.jpg");
+		background-position: left 0 top 228px, right 0 top 287px, center;
+		background-repeat: no-repeat, no-repeat, no-repeat;
+		background-size: 250px, 400px, 100%;
+		margin-bottom: 2rem;
+	}
     
-    .champ-name {
-        font-size: 0.7em !important;
-        position: absolute;
-        bottom: -30px;
-    }
-
-    .item {
-        margin-bottom: 40px;
-        margin-left: 6px;
-    }
-
-    .item img {
-        width: 60px;
-        height: 60px;
-    }
-
-    .blurb {
-        font-size: 5vw;
-        padding-bottom: 1rem;
-        margin: auto;
-    }
-
-    .site-logo {
-        font-size: 6vw;
-    }
-
-    .champ-grid {
-        width: 95%;
-        margin-left: 15px;
-        margin-right: 35px;
-    }
-
-    #attackbar,
-    #defensebar,
-    #magicbar,
-    #difficultybar {
-        font-size: 8px;
-    }
-
-    .champions {
-        margin-bottom:0;
-    }
+	.callout {
+		position: relative;
+		top: 25%;
+	}
 }
