@@ -29,7 +29,7 @@ function champPage(champId, champName) {
                         .html(
                             `
               <div class = "container">
-               <h1 class="text-center name">${champName}, <span style="text-transform: capitalize;">${
+               <h1 class="text-center name">${champName},<br><span style="text-transform: capitalize;">${
                             champion.title
                             }</span>
                </h1>

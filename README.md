@@ -8,26 +8,33 @@ of users.
 
 # Demo
 
-![Responsive-Mockup]()
+![Responsive-Mockup](https://github.com/bob134552/LeagueLore/blob/master/assets/images/mockup/responsive_mockup.jpg)
 
-A live version of the site can be found [here](https://bob134552.github.io/leaguelore/). 
+A live version of the site can be found [here](https://bob134552.github.io/LeagueLore/). 
 
 # UX
 
-
+To make a responsive website that starter League of Legends players can use to view information on champions within the game.
 
 Balsamiq was used to create the following wireframe:
 
-[Balsamiq Mobile and Desktop Wireframe](https://github.com/bob134552/)
+[Balsamiq Mobile and Desktop Wireframe](https://github.com/bob134552/LeagueLore/blob/master/assets/wireframe/LeagueLoreWF.pdf)
 
 ## The Strategy Plane
 
+The objective is to create a site with the goal to let new and experienced players of League of Legends be able to view the base information
+on the champions within the game. The immediate requirements are a search bar and language option for non native speakers, a grid to display 
+all current champions within the game and an information page that appears to display information on the selected champion along with a spotlight
+video using the youtube API to search for the video.
 
 ## The Scope Plane
 
-
+The website's requirement will be to allow as much choice to the user as possible. Therefore to acheive this a dropdown is available for the user to change language,
+a search bar with autocomplete function for users to look for champions that they know the name of or part of the name, a grid that the user can browse available champions in the game
+and a contact page where users can submit ideas on what else they would like to see on the site.
 
 ## The Structure Plane
+
 
 
 ## The Skeleton Plane

@@ -1,8 +1,16 @@
 /*---Font---*/
 
 @font-face {
-	font-family: Aquire;
-	src: url("assets/font/AquireLight.otf") format("opentype");
+    font-family: 'Aquire';
+    src: url('assets/font/aquirelight.eot');
+    src: url('assets/font/aquirelight.eot?#iefix==') format('embedded-opentype'),
+        url('assets/font/aquirelight.woff2') format('woff2'),
+        url('assets/font/aquirelight.woff') format('woff'),
+        url('assets/font/aquirelight.ttf') format('truetype'),
+        url('assets/font/AquireLight.svg#AquireLight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
 }
 
 
@@ -42,7 +50,7 @@ body {
 }
 
 .nav {
-	background-color: #061c25;
+	background-color: #061c25a9;
 	height: 3rem;
 	margin-bottom: 2rem;
 }
@@ -85,14 +93,14 @@ body {
 	color: #fbbf01;
 	font-size: 4rem;
 	line-height: 0.8;
-	font-family: Aquire;
+	font-family: Aquire, fantasy;
 	text-decoration: underline;
 }
 
 .blurb {
 	color: #fbbf01;
 	font-size: 1.5rem;
-	font-family: Aquire;
+	font-family: Aquire, fantasy;
 }
 
 
@@ -252,6 +260,7 @@ body {
 
 .name {
 	color: gold;
+    font-family: Aquire, fantasy;
 }
 
 #passive-image img,
@@ -385,9 +394,8 @@ textarea.form-input {
 	}
 
 	.champ-grid {
-		width: 95%;
-		margin-left: 15px;
-		margin-right: 35px;
+		width: 58%;
+        margin: auto !important;
 	}
 
 	#attackbar,
@@ -397,9 +405,9 @@ textarea.form-input {
 		font-size: 8px;
 	}
 
-	.champions {
-		margin-bottom: 0;
-	}
+    .marg-b {
+        margin-bottom: -30px;
+    }
 }
 
 @media (min-width: 992px) {
@@ -417,4 +425,36 @@ textarea.form-input {
 		position: relative;
 		top: 25%;
 	}
+}
+
+@media (max-width: 1024px) {
+
+    .champ-grid {
+        margin-left: 32px;
+    }
+    
+}
+
+@media (max-width: 414px) {
+
+    .champ-grid {
+        width: 97%;
+    }
+
+}
+
+@media (max-width: 320px) {
+
+   .champ-grid {
+       margin-left: 24px;
+   } 
+
+}
+
+@media (max-width: 375px) {
+    
+    .champ-grid {
+        margin-left: 16px;
+    }
+    
 }

@@ -154,7 +154,7 @@ function searchChamp(champions) {
 
 //Removes active class from non relevant names.
 function removeActive(x) {
-    for (var i = 0; i < x.length; i++) {
+    for (i = 0; i < x.length; i++) {
         x[i].classList.remove("autocomplete-active");
     }
 }
@@ -162,9 +162,9 @@ function removeActive(x) {
 
 //Enables autocomplete when typing in a champions name.
 function autocomplete(inp, arr) {
-    var currentFocus;
+    let currentFocus;
     inp.addEventListener("input", function(e) {
-        var a, b, i, val = this.value;
+        let a, b, i, val = this.value;
         closeAllLists();
         if (!val) {
             return false;
@@ -194,8 +194,8 @@ function autocomplete(inp, arr) {
 
     //Removes div elements when they don't match input or dont match drop down.
     function closeAllLists(elmnt) {
-        var x = document.getElementsByClassName("autocomplete-items");
-        for (var i = 0; i < x.length; i++) {
+        let x = document.getElementsByClassName("autocomplete-items");
+        for (i = 0; i < x.length; i++) {
             if (elmnt != x[i] && elmnt != inp) {
                 x[i].parentNode.removeChild(x[i]);
             }
@@ -213,7 +213,7 @@ function autocomplete(inp, arr) {
 
     //Scroll up and down list.
     inp.addEventListener("keydown", function(e) {
-        var x = document.getElementById(this.id + "autocomplete-list");
+        let x = document.getElementById(this.id + "autocomplete-list");
         if (x) x = x.getElementsByTagName("div");
         if (e.keyCode == 40) { //down key press
             currentFocus++;
