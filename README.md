@@ -35,14 +35,21 @@ and a contact page where users can submit ideas on what else they would like to 
 
 ## The Structure Plane
 
-
+The layout of the site would be a 2 page site, a champion page and contact page. Through these pages
+the user will have access to a grid from which they can either use the search bar provide to find champions or
+a particular champion they are looking for. On selection of a champion the grid would be cleared and filled with
+information about the selected champion along with a youtube video of the champions spotlight (if available). There is also pagination available for mobile.
 
 ## The Skeleton Plane
 
+The skeleton of the site was designed using Balsamiq and can be found in the link above (see UX section).
 
 ## The Surface Plane
 
-
+The project is a 2 page site, a main page where the user is presented with a grid to choose a champion or a search bar to search
+for a specific champion. While on the main page the user is able to click on the champions displayed and see more information
+available for that champion. The second page is a contact page where users are able to submit future ideas on what could be changed
+or added to the site.
 
 ## User Stories
 
@@ -58,6 +65,8 @@ and a contact page where users can submit ideas on what else they would like to 
 
 ## Technologies Used
 
+- [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+  - To create functions and get data from API and external JSONs.
 - [Balsamiq](https://balsamiq.com/)
   - For a basic wireframe mockup.
 - [HTML](https://en.wikipedia.org/wiki/HTML)
@@ -69,7 +78,11 @@ and a contact page where users can submit ideas on what else they would like to 
 - [Bootstrap](https://getbootstrap.com/)
   - For better responsiveness.
 - [Font Awesome](https://fontawesome.com/)
-  - To add icons to navbar and reasons section.
+  - To add icons to navbar.
+- [Youtube API](https://developers.google.com/youtube/v3)
+  - To search youtube videos.
+- [EmailJS](https://www.emailjs.com/)
+  - To link contact page to google email account.
 
 # Testing
 
@@ -89,7 +102,7 @@ and a contact page where users can submit ideas on what else they would like to 
 
 ## Validaton and Beautify
 
-The code for index.html and style.css was beautified using [Code Beautify](https://codebeautify.org/).
+The code for index.html, contact.html and style.css was beautified using [Code Beautify](https://codebeautify.org/).
 
 In addition, the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and [W3C HTML Validator](https://validator.w3.org/#validate_by_input+with_options) was used to validate the code.
 
@@ -111,6 +124,7 @@ To run the site locally you can visit [here]() and click on the "Code" drop down
 
 ## Content
 
+Contents provided from the Riot games API and the Riot games youtube channel.
 
 ## Media
 
