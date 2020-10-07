@@ -1,16 +1,17 @@
-//Get language from index.html
-let language = $(`option[id="default"]`).val();
+const LEAGUE_OF_LORE = 'LEAGUE_OF_LORE';
+let language = localStorage.getItem(LEAGUE_OF_LORE) || $(`option[id="default"]`).val();
 
-//Remakes grid if different language is selected
+//On change event for language.
 $('select[name="dropdown"]').change(function() {
     language = $(this).val();
+    localStorage.setItem(LEAGUE_OF_LORE, language);
     $(".champ-grid").html(" ");
-    getData(buildGrid);
+    getChampions();
 });
 
 
-//Gets json data.
-function getData(cb) {
+//Gets Champions JSON.
+function getChampions(cb) {
     $("#lore-page").hide();
     $("#video").hide();
 
@@ -33,15 +34,17 @@ function getData(cb) {
     });
 };
 
-$(document).ready(getData(buildGrid));
+$( document ).ready(function() {
+    if (language) $('select[name="dropdown"]').val(language);
+    getChampions(buildGrid);
+});
+
 
 // Build champion icon display.
 function buildGrid(champData, patch) {
-    let champArray = Array.from(Object.values(champData.data));
-    let champAutoArray = champArray.map(({
-        name
-    }) => name);;
-    let el = " ";
+    let championArray = Array.from(Object.values(champData.data));
+    let championNames = [];
+    let championList = " ";
     let index = 1;
     let galleryItems = document.querySelector(".champ-grid").children;
     let prev = document.querySelector(".prev");
@@ -54,12 +57,12 @@ function buildGrid(champData, patch) {
     function setMaxItem(windowSize) {
         if (windowSize.matches) {
             maxItem = 20;
-            pagination = Math.ceil(champArray.length / maxItem);
+            pagination = Math.ceil(championArray.length / maxItem);
             $(next).removeClass("hide");
             $("div.item:nth-child(n+21)").addClass("hide");
         } else {
-            maxItem = champArray.length;
-            pagination = Math.ceil(champArray.length / maxItem);
+            maxItem = championArray.length;
+            pagination = Math.ceil(championArray.length / maxItem);
             $("div.item").removeClass("hide");
         }
     }
@@ -69,42 +72,44 @@ function buildGrid(champData, patch) {
     windowSize.addListener(setMaxItem);
 
 
-    // Display each entry from external json
-    for (let i = 0; i < champArray.length; i++) {
+    // Build champion list.
+    for (let i = 0; i < championArray.length; i++) {
+        championNames.push(championArray[i].name);
         if (i < maxItem) {
-            el += `<div class="item text-md-center"><img onClick="return champPage(this.id, this.alt)" id="${champArray[i].id}" src="http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${champArray[i].id}.png" alt="${champArray[i].name}"><br><span class="champ-name">${champArray[i].name}</span></div>`;
-            document.getElementById("champ-grid").innerHTML = el;
+            championList += `<div class="item text-md-center"><img onClick="return champPage(this.id, this.alt)" id="${championArray[i].id}" src="http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${championArray[i].id}.png" alt="${championArray[i].name}"><br><span class="champ-name">${championArray[i].name}</span></div>`;
+            document.getElementById("champ-grid").innerHTML = championList;
         } else {
-            el += `<div class="item hide text-md-center"><img onClick="return champPage(this.id, this.alt)" id="${champArray[i].id}" src="http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${champArray[i].id}.png" alt="${champArray[i].name}"><br><span class="champ-name">${champArray[i].name}</span></div>`;
-            document.getElementById("champ-grid").innerHTML = el;
+            championList += `<div class="item hide text-md-center"><img onClick="return champPage(this.id, this.alt)" id="${championArray[i].id}" src="http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${championArray[i].id}.png" alt="${championArray[i].name}"><br><span class="champ-name">${championArray[i].name}</span></div>`;
+            document.getElementById("champ-grid").innerHTML = championList;
         }
     }
+
     //Set up pagination buttons by adding listeners to each
     prev.addEventListener("click", function() {
         index--;
         check(index, pagination, next, prev);
-        showItems(champArray, galleryItems, index, maxItem, page);
+        showItems(championArray, galleryItems, index, maxItem, page);
     });
 
     next.addEventListener("click", function() {
         index++;
         check(index, pagination, next, prev);
-        showItems(champArray, galleryItems, index, maxItem, page);
+        showItems(championArray, galleryItems, index, maxItem, page);
     });
 
 
     window.onload = function() {
-        showItems(champArray, galleryItems, index, maxItem, page);
+        showItems(championArray, galleryItems, index, maxItem, page);
         check(index, pagination, next, prev);
     };
 
     //Call autocomplete when user searchs for a champion.
-    autocomplete(document.getElementById("champ-search"), champAutoArray);
+    autocomplete(championNames);
 }
 
 //Add css class to current images being shown and hide class to images being hidden
-function showItems(champArray, galleryItems, index, maxItem, page) {
-    for (let i = 0; i < champArray.length; i++) {
+function showItems(championArray, galleryItems, index, maxItem, page) {
+    for (let i = 0; i < championArray.length; i++) {
         galleryItems[i].classList.add("hide");
 
         if (i >= index * maxItem - maxItem && i < index * maxItem) {
@@ -133,12 +138,12 @@ function check(index, pagination, next, prev) {
 function searchChamp(champions) {
     let input = document.getElementById("champ-search");
     let filter = input.value.toUpperCase();
-    let champArray = Array.from(Object.values(champions.data));
+    let championArray = Array.from(Object.values(champions.data));
     let textName, textID;
 
-    for (i = 0; i < champArray.length; i++) {
-        textName = champArray[i].name;
-        textID = champArray[i].id;
+    for (i = 0; i < championArray.length; i++) {
+        textName = championArray[i].name;
+        textID = championArray[i].id;
 
         //Checks if either the name or id of the element begins with what the user is searching for.
         if (textName.toUpperCase().startsWith(filter) ||
@@ -161,33 +166,35 @@ function removeActive(x) {
 
 
 //Enables autocomplete when typing in a champions name.
-function autocomplete(inp, arr) {
+function autocomplete(championNames) {
+    const inputElement = document.getElementById("champ-search");
     let currentFocus;
-    inp.addEventListener("input", function(e) {
-        let a, b, i, val = this.value;
+
+    inputElement.addEventListener("input", function(e) {
+        let newNameDiv, activeNames, val = this.value;
         closeAllLists();
         if (!val) {
             return false;
         }
         currentFocus = -1;
-        a = document.createElement("div");
-        a.setAttribute("id", this.id + "autocomplete-list");
-        a.setAttribute("class", "autocomplete-items");
-        this.parentNode.appendChild(a);
+        newNameDiv = document.createElement("div");
+        newNameDiv.setAttribute("id", this.id + "autocomplete-list");
+        newNameDiv.setAttribute("class", "autocomplete-items");
+        this.parentNode.appendChild(newNameDiv);
 
         //Creates dropdown item.
-        for (i = 0; i < arr.length; i++) {
-            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-                b = document.createElement("div");
-                b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-                b.innerHTML += arr[i].substr(val.length);
-                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+        for (i = 0; i < championNames.length; i++) {
+            if (championNames[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                activeNames = document.createElement("div");
+                activeNames.innerHTML = "<strong>" + championNames[i].substr(0, val.length) + "</strong>";
+                activeNames.innerHTML += championNames[i].substr(val.length);
+                activeNames.innerHTML += "<input type='hidden' value='" + championNames[i] + "'>";
 
-                b.addEventListener("click", function(e) {
-                    inp.value = this.getElementsByTagName("input")[0].value;
+                activeNames.addEventListener("click", function(e) {
+                    inputElement.value = this.getElementsByTagName("input")[0].value;
                     closeAllLists();
                 });
-                a.appendChild(b);
+                newNameDiv.appendChild(activeNames);
             }
         }
     });
@@ -196,7 +203,7 @@ function autocomplete(inp, arr) {
     function closeAllLists(elmnt) {
         let x = document.getElementsByClassName("autocomplete-items");
         for (i = 0; i < x.length; i++) {
-            if (elmnt != x[i] && elmnt != inp) {
+            if (elmnt != x[i] && elmnt != inputElement) {
                 x[i].parentNode.removeChild(x[i]);
             }
         }
@@ -212,7 +219,7 @@ function autocomplete(inp, arr) {
     }
 
     //Scroll up and down list.
-    inp.addEventListener("keydown", function(e) {
+    inputElement.addEventListener("keydown", function(e) {
         let x = document.getElementById(this.id + "autocomplete-list");
         if (x) x = x.getElementsByTagName("div");
         if (e.keyCode == 40) { //down key press

@@ -1,11 +1,7 @@
 //Hide grid.
 function champPage(champId, champName) {
     $(".champions").fadeOut();
-    $("div.callout").fadeOut();
-
-    //Add hash containing champions name.
-    document.title = `League Lore - ${champName}`;
-    window.location.hash = `/${champName}`;
+    $("div.callout-text").fadeOut();
 
     // Get current patch version.
     $.ajax({
@@ -146,9 +142,10 @@ function champPage(champId, champName) {
             if (videoName.includes(champName) == true) {
                 $("#video")
                     .html(
-                        `
+                        `<div class="container">
                         <div class="text-center"><h2><u>${champName} Champion Spotlight</u></h2></div>
                         <div class='embed-container'><iframe src='https://www.youtube.com/embed/${videoUrl}' frameborder='0' allowfullscreen></iframe></div>
+                        </div>
                         `
                     )
                     .fadeIn();

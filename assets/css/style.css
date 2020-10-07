@@ -42,17 +42,18 @@ body {
 
 /*---Navbar---*/
 
-.navandcallout {
+.callout {
 	background-image: url("../images/backgroundlol.jpg");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	margin-bottom: 2rem;
+    padding-top: 3.5rem;
 }
 
 .nav {
 	background-color: #061c25a9;
 	height: 3rem;
-	margin-bottom: 2rem;
+	margin-bottom: -3rem;
 }
 
 .nav img {
@@ -85,7 +86,7 @@ body {
 
 /*---Site logo---*/
 
-.callout {
+.callout-text {
 	width: 100%;
 }
 
@@ -226,11 +227,17 @@ body {
 
 .prev.disabled,
 .next.disabled {
-	display: none;
+	display: block;
+    pointer-events: none;
+    color: grey;
 }
 
 
 /*---Lore page---*/
+
+#lore-page {
+    margin-top: 3.5rem;
+}
 
 .stat-title {
 	font-size: 20px;
@@ -359,7 +366,7 @@ textarea.form-input {
 
 @media (max-width: 768px) {
 
-	.navandcallout {
+	.callout {
 		margin-bottom: 1rem;
 	}
 
@@ -412,7 +419,7 @@ textarea.form-input {
 
 @media (min-width: 992px) {
 
-	.navandcallout {
+	.callout {
 		height: 40vh;
 		background-image: url("../images/riven.jpg"), url("../images/yi.jpg"), url("../images/backgroundlol.jpg");
 		background-position: left 0 top 228px, right 0 top 287px, center;
@@ -421,10 +428,11 @@ textarea.form-input {
 		margin-bottom: 2rem;
 	}
     
-	.callout {
+	.callout-text {
 		position: relative;
 		top: 25%;
 	}
+
 }
 
 @media (max-width: 1024px) {

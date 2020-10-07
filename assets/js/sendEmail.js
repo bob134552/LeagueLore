@@ -13,6 +13,7 @@ function sendMail(ideaForm) {
                 let done = load.replace("Send us your ideas", "Sent!");
                 document.getElementById("submitbutton").innerHTML = done;
                 document.getElementById("submitbutton").disabled = true;
+                document.getElementById("idea").reset();
             },
             //If email doesn't send.
             function(error) {

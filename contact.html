@@ -15,12 +15,16 @@
       <title>League Lore - Contact Us</title>
    </head>
    <body>
+
       <!--Allows pushable footer-->
       <div class="content">
-         <section class="container-fluid navandcallout">
+        <!--Navbar-->
+         <div class="container-fluid sticky-top">
             <div class="navbar nav row">
                <div class="col-xs-12">
-                  <img src="assets/images/llogo.jpg" alt="Logo" class="logo" />
+                    <a href="index.html">
+                        <img src="assets/images/llogo.jpg" alt="Logo" class="logo"/>
+                    </a>
                   <ul>
                      <li>
                         <a href="index.html"><i class="icon fas fa-home"></i></a>
@@ -31,19 +35,23 @@
                   </ul>
                </div>
             </div>
+         </div>
+
             <!--Callout-->
-            <div class="callout text-center">
-               <p class="site-logo">League Lore</p>
-               <p class="blurb">Have any interesting ideas, let us know!</p>
+        <section class="container-fluid callout">
+            <div class="callout-text text-center">
+                <p class="site-logo">League Lore</p>
+                <p class="blurb">Have any interesting ideas, let us know!</p>
             </div>
-         </section>
+        </section>
+
          <!--Contact Container-->
          <section class="container">
             <div class="row my-md-5">
                <div class="col-lg-6 col-xs-12 email"><img src="assets/images/email.jpg" alt="HeimerEmail"></div>
                <div class="col-lg-6 col-xs-12">
                   <div class="form-idea">
-                     <form onsubmit="return sendMail(this);">
+                     <form onsubmit="return sendMail(this);" id="idea">
                         <input
                            type="text"
                            name="name"
