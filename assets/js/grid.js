@@ -1,10 +1,10 @@
-const LEAGUE_OF_LORE = 'LEAGUE_OF_LORE';
-let language = localStorage.getItem(LEAGUE_OF_LORE) || $(`option[id="default"]`).val();
+const LEAGUE_LORE = 'LEAGUE_LORE';
+let language = localStorage.getItem(LEAGUE_LORE) || $(`option[id="default"]`).val();
 
 //On change event for language.
 $('select[name="dropdown"]').change(function() {
     language = $(this).val();
-    localStorage.setItem(LEAGUE_OF_LORE, language);
+    localStorage.setItem(LEAGUE_LORE, language);
     $(".champ-grid").html(" ");
     getChampions();
 });

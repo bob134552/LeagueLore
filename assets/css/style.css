@@ -3,14 +3,6 @@
 @font-face {
     font-family: 'Aquire';
     src: url('assets/font/aquirelight.eot');
-    src: url('assets/font/aquirelight.eot?#iefix==') format('embedded-opentype'),
-        url('assets/font/aquirelight.woff2') format('woff2'),
-        url('assets/font/aquirelight.woff') format('woff'),
-        url('assets/font/aquirelight.ttf') format('truetype'),
-        url('assets/font/AquireLight.svg#AquireLight') format('svg');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
 }
 
 

@@ -143,7 +143,7 @@ function champPage(champId, champName) {
                 $("#video")
                     .html(
                         `<div class="container">
-                        <div class="text-center"><h2><u>${champName} Champion Spotlight</u></h2></div>
+                        <div class="text-center stat-title"><h2><u>${champName} Champion Spotlight</u></h2></div><br>
                         <div class='embed-container'><iframe src='https://www.youtube.com/embed/${videoUrl}' frameborder='0' allowfullscreen></iframe></div>
                         </div>
                         `

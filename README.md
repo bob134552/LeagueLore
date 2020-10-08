@@ -51,17 +51,42 @@ for a specific champion. While on the main page the user is able to click on the
 available for that champion. The second page is a contact page where users are able to submit future ideas on what could be changed
 or added to the site.
 
+The [Aquire Light font](https://befonts.com/aquire-free-font.html) is used for desktop to make the title more stylish and appeal more to
+the user. If the font is not compatible for the device viewing the site, the font defaults to "fantasy".
+
 ## User Stories
 
+- As a user, I want to be able to search for a specific champion.
+- As a user, I want to be able to browse and choose champions that look interesting to me.
+- As a user, I want to be able to change language if I'm not a native English speaker.
+- As a user, I want to be able to suggest changes that could be made to make the site more appealing in the future.
+- As a user, I want the grid to be compact in mobile view to prevent having a large page.
 
 # Features
 
+The index page has 4 sections along with a navbar.
+
+The sections are as follows:
+
+- A section containing callout and site name.
 
 ## Existing Features
 
+The existing features are:
+
+- Language selection that is remembered if page is refreshed.
+- Search bar with autocomplete to display all names that match.
+- Pagination for grid on mobile view to make it easier to use.
+- Youtube video for selected champion (currently only available in English).
+- Contact form to email site creator with site ideas and improvements.
 
 ## Features Left to Implement
 
+- Youtube API search for other languages (search more than english riot games channel).
+- Add in in depth information for champion ability cooldowns and damage.
+- Add in item builder and rune/ mastery information.
+- Slideshow for each champions available skins.
+- Add in recommended builds.
 
 ## Technologies Used
 
