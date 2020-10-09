@@ -9,7 +9,6 @@ $('select[name="dropdown"]').change(function() {
     getChampions();
 });
 
-
 //Gets Champions JSON.
 function getChampions(cb) {
     $("#lore-page").hide();
@@ -39,7 +38,6 @@ $( document ).ready(function() {
     getChampions(buildGrid);
 });
 
-
 // Build champion icon display.
 function buildGrid(champData, patch) {
     let championArray = Array.from(Object.values(champData.data));
@@ -50,7 +48,7 @@ function buildGrid(champData, patch) {
     let prev = document.querySelector(".prev");
     let next = document.querySelector(".next");
     let page = document.querySelector(".page-num");
-    let windowSize = window.matchMedia("(max-width: 768px)");
+    let windowSize = window.matchMedia("(max-width: 1025px)");
     let maxItem, pagination;
 
     //Sets maxItem parameter based on window size.
@@ -155,15 +153,12 @@ function searchChamp(champions) {
     }
 }
 
-
-
 //Removes active class from non relevant names.
 function removeActive(x) {
     for (i = 0; i < x.length; i++) {
         x[i].classList.remove("autocomplete-active");
     }
 }
-
 
 //Enables autocomplete when typing in a champions name.
 function autocomplete(championNames) {

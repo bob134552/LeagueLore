@@ -189,8 +189,6 @@ body {
 .item .champ-name {
 	color: white;
 	font-size: 0.9em;
-	margin-left: 4px;
-	overflow: hidden;
 }
 
 .hide {
@@ -240,8 +238,6 @@ body {
 .splash {
 	width: 100%;
 	object-fit: cover;
-	margin-left: 15px;
-	margin-right: 15px;
 }
 
 .stats-bar {
@@ -356,31 +352,55 @@ textarea.form-input {
 
 /*---Media Queries---*/
 
+@media (max-width: 1024px) {
+
+    .champ-grid {
+        margin-left: 32px;
+    }
+
+	.pagination-buttons {
+		display: block;
+	}
+    
+}
+
+@media (min-width: 992px) {
+
+	.callout {
+		height: 523px;
+		background-image: url("../images/riven.jpg"), url("../images/yi.jpg"), url("../images/backgroundlol.jpg");
+		background-position: left 0 top 228px, right 0 top 287px, center;
+		background-repeat: no-repeat, no-repeat, no-repeat;
+		background-size: 250px, 400px, 100%;
+		margin-bottom: 2rem;
+	}
+    
+	.callout-text {
+		position: relative;
+		top: 25%;
+	}
+    
+}
+
 @media (max-width: 768px) {
 
 	.callout {
 		margin-bottom: 1rem;
 	}
 
-	.pagination-buttons {
-		display: block;
-	}
-
 	.champ-name {
 		font-size: 0.7em !important;
-		position: absolute;
-		bottom: -30px;
 	}
 
 	.item {
-		margin-bottom: 40px;
+		margin-bottom: 10px;
 		margin-left: 6px;
 	}
 
-	.item img {
-		width: 60px;
-		height: 60px;
-	}
+    .item img {
+        width: 94px;
+        height: 94px;
+    }
 
 	.blurb {
 		font-size: 5vw;
@@ -393,7 +413,7 @@ textarea.form-input {
 	}
 
 	.champ-grid {
-		width: 58%;
+		width: 100%;
         margin: auto !important;
 	}
 
@@ -405,37 +425,16 @@ textarea.form-input {
 	}
 
     .marg-b {
-        margin-bottom: -30px;
+        margin-bottom: -50px;
     }
-}
-
-@media (min-width: 992px) {
-
-	.callout {
-		height: 40vh;
-		background-image: url("../images/riven.jpg"), url("../images/yi.jpg"), url("../images/backgroundlol.jpg");
-		background-position: left 0 top 228px, right 0 top 287px, center;
-		background-repeat: no-repeat, no-repeat, no-repeat;
-		background-size: 250px, 400px, 100%;
-		margin-bottom: 2rem;
-	}
-    
-	.callout-text {
-		position: relative;
-		top: 25%;
-	}
-
-}
-
-@media (max-width: 1024px) {
-
-    .champ-grid {
-        margin-left: 32px;
-    }
-    
 }
 
 @media (max-width: 414px) {
+
+	.item img {
+		width: 60px;
+		height: 60px;
+	}    
 
     .champ-grid {
         width: 97%;

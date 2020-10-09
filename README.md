@@ -38,7 +38,8 @@ and a contact page where users can submit ideas on what else they would like to 
 The layout of the site would be a 2 page site, a champion page and contact page. Through these pages
 the user will have access to a grid from which they can either use the search bar provide to find champions or
 a particular champion they are looking for. On selection of a champion the grid would be cleared and filled with
-information about the selected champion along with a youtube video of the champions spotlight (if available). There is also pagination available for mobile.
+information about the selected champion along with a youtube video of the champions spotlight (if available). 
+There is also pagination available for mobile and tablet.
 
 ## The Skeleton Plane
 
@@ -56,11 +57,10 @@ the user. If the font is not compatible for the device viewing the site, the fon
 
 ## User Stories
 
-- As a user, I want to be able to search for a specific champion.
-- As a user, I want to be able to browse and choose champions that look interesting to me.
+- As a user, I want to be able to search for a specific champion or a champion that looks interesting.
 - As a user, I want to be able to change language if I'm not a native English speaker.
 - As a user, I want to be able to suggest changes that could be made to make the site more appealing in the future.
-- As a user, I want the grid to be compact in mobile view to prevent having a large page.
+- As a user, I want the grid to be compact in mobile and tablet view to prevent having a large page.
 
 # Features
 
@@ -69,6 +69,9 @@ The index page has 4 sections along with a navbar.
 The sections are as follows:
 
 - A section containing callout and site name.
+- A section containing the champions grid.
+- A section for the champion lore to be built in from the Riot API.
+- A section for the champion spotlight video to be placed in from the Youtube API.
 
 ## Existing Features
 
@@ -76,7 +79,7 @@ The existing features are:
 
 - Language selection that is remembered if page is refreshed.
 - Search bar with autocomplete to display all names that match.
-- Pagination for grid on mobile view to make it easier to use.
+- Pagination for grid on mobile and tablet view to make it easier to use.
 - Youtube video for selected champion (currently only available in English).
 - Contact form to email site creator with site ideas and improvements.
 
@@ -86,7 +89,7 @@ The existing features are:
 - Add in in depth information for champion ability cooldowns and damage.
 - Add in item builder and rune/ mastery information.
 - Slideshow for each champions available skins.
-- Add in recommended builds.
+- Add in recommended builds for champions.
 
 ## Technologies Used
 
@@ -108,18 +111,50 @@ The existing features are:
   - To search youtube videos.
 - [EmailJS](https://www.emailjs.com/)
   - To link contact page to google email account.
+- [Riot API](https://developer.riotgames.com/docs/lol)
+  - To obtain data on champions and search specific champions.
 
 # Testing
 
+The site was tested on several devices and browsers to ensure responsiveness throughout.
+
+Browsers: Chrome, Microsoft Edge and Safari
+
+Devices included: Samsung Galaxy S10+, iPhone X, Samsung Galaxy Tab A, Desktop PC and MacBook Air.
+
+The custom font "Aquire Light" only works on desktop.
+
 ## Testing based on user stories:
 
-## As a user, 
+## As a user, I want to be able to search for a specific champion or a champion that looks interesting.
 
-## As a user, 
+1. Filling in search bar brings up an autocomplete dropdown underneath the search bar to help narrow down a search, hitting enter fades the grid 
+and builds the champions lore and video section.
+    1. Searching with a blank search bar returns a warning that it is required to be filled.
+    2. Searching with a name that doesn't match notifies user underneath the search bar that there is no result.
 
-## As a user, 
+2. Clicking on a champions image in the grid, fades the grid and builds the champions lore section and video section.
 
-## As a user, 
+3. In mobile and tablet view the grid is reduced to 20 champions with pagination below the grid.
+    1. Previous button is disabled on first page.
+    2. Clicking on next button moves to next 20 champions until there are no more champions to display then next button becomes disabled.
+
+## As a user, I want to be able to change language if I'm not a native English speaker.
+
+1. Clicking on the dropdown next to the search bar brings up a list of available language options with English as default.
+    1. Changing the language rebuilds the grid to display names in selected language.
+    2. Refreshing the page remembers the newly selected language.
+    3. Clicking on a champion builds the champions lore in the selected language.
+        - Returning from the lore to grid remembers the selected language.
+
+## As a user, I want to be able to voice my options on changes that could be made to make the site more appealing in the future.
+
+1. Leaving either name, email or idea box empty notifies user that they are required to be able to send.
+2. After submitting form user is notified that email has been sent as the send button becomes disabled and text changes to notify user that the email has been sent.
+3. After submitting the form is cleared.
+
+## As a user, I want the grid to be compact in mobile and tablet view to prevent having a large page.
+
 
 
 # Bugs and Problems
@@ -143,7 +178,7 @@ Additionally the site will be updated after any git push to the master branch.
 
 ### How to run code locally.
 
-To run the site locally you can visit [here]() and click on the "Code" drop down option, you then copy the HTTPS code provided into a code editor of your choice.
+To run the site locally you can visit [here](https://github.com/bob134552/LeagueLore) and click on the "Code" drop down option, you then copy the HTTPS code provided into a code editor of your choice.
 
 # Credits
 

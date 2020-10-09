@@ -24,13 +24,11 @@ function champPage(champId, champName) {
                     $("#lore-page")
                         .html(
                             `
-              <div class = "container">
                <h1 class="text-center name">${champName},<br><span style="text-transform: capitalize;">${
                             champion.title
                             }</span>
                </h1>
             <img class = "splash" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg" alt="${champName}">
-            <div class = "container">
             <div class = "row">
             <div class = "col-12">
             <br>
@@ -103,8 +101,6 @@ function champPage(champId, champName) {
                             abilityR.name
                             }</strong><br>${abilityR.description}</p></div>
             <br>
-            </div>
-            </div>
             </div>
             `
                         )
