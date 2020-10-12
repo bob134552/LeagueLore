@@ -90,6 +90,7 @@ The existing features are:
 - Add in item builder and rune/ mastery information.
 - Slideshow for each champions available skins.
 - Add in recommended builds for champions.
+- Sort by type of champion (mage, assassin etc.).
 
 ## Technologies Used
 
@@ -155,10 +156,20 @@ and builds the champions lore and video section.
 
 ## As a user, I want the grid to be compact in mobile and tablet view to prevent having a large page.
 
-
+1. Resizing screen to tablet size sets the amount of items to be displayed to 20 and adds in pagination buttons to move through available champions.
 
 # Bugs and Problems
 
+- Sometimes when resizing from a large screen to tablet/mobile, when the pagination buttons appear they are both disabled.
+    - This can be fixed by refreshing the page.
+
+- When searching using the search bar, if a champion is available and submitted then the error message appears regardless.
+    - This is due to the searchChamp function searching through all names in the array of names.
+    - This was fixed by adding in break to the if statement when true and adding a delay before the error message appeared to avoid seeing it during the fade in of the lore page.
+
+- Limited quota for Youtube API.
+    - Once quota for Youtube API requests is reached, a 403 error is thrown.
+        - Added error function to ajax request for when 403 error is shown.
 
 ## Validaton and Beautify
 

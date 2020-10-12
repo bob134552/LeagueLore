@@ -6,7 +6,7 @@ $('select[name="dropdown"]').change(function() {
     language = $(this).val();
     localStorage.setItem(LEAGUE_LORE, language);
     $(".champ-grid").html(" ");
-    getChampions();
+    getChampions(buildGrid);
 });
 
 //Gets Champions JSON.
@@ -137,18 +137,20 @@ function searchChamp(champions) {
     let input = document.getElementById("champ-search");
     let filter = input.value.toUpperCase();
     let championArray = Array.from(Object.values(champions.data));
-    let textName, textID;
+    let championName, championID;
 
     for (i = 0; i < championArray.length; i++) {
-        textName = championArray[i].name;
-        textID = championArray[i].id;
+        championName = championArray[i].name;
+        championID = championArray[i].id;
 
         //Checks if either the name or id of the element begins with what the user is searching for.
-        if (textName.toUpperCase().startsWith(filter) ||
-            textID.toUpperCase().startsWith(filter)) {
-            champPage(textID, textName);
-        } else {
-            $(".results").html(`Sorry, no results for ${input.value}.`).delay(2000).fadeIn("slow");
+        if (championName.toUpperCase().startsWith(filter) === true ||
+            championID.toUpperCase().startsWith(filter) === true) {
+            champPage(championID, championName);
+            break
+        } 
+        else {
+            $(".results").html(`Sorry, no results for ${input.value}.`).delay(1000).fadeIn("slow");
         }
     }
 }

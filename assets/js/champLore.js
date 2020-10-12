@@ -7,12 +7,12 @@ function champPage(champId, champName) {
     $.ajax({
         type: "GET",
         url: "https://ddragon.leagueoflegends.com/api/versions.json",
-        success: function(patch) {
+        success: function (patch) {
             //ajax method to get JSON for clicked on champion.
             $.ajax({
                 type: "GET",
                 url: `http://ddragon.leagueoflegends.com/cdn/${patch[0]}/data/${language}/champion/${champId}.json`,
-                success: function(data) {
+                success: function (data) {
                     //Declare champion and ability variables.
                     let champion = data.data[champId];
                     let abilityQ = champion.spells[0];
@@ -129,7 +129,7 @@ function champPage(champId, champName) {
         type: "GET",
         url: baseUrl,
         data: options,
-        success: function(videoData) {
+        success: function (videoData) {
             console.log(videoData.items);
 
             //Check that video retrieved contains the champions name to avoid using wrong video.
@@ -147,6 +147,25 @@ function champPage(champId, champName) {
                     .fadeIn();
             }
         },
+        error: function (jqXHR, exception) {
+            if (jqXHR.status === 0) {
+                console.log('Not connect.\n Verify Network.');
+            } else if (jqXHR.status == 404) {
+                console.log('Requested page not found. [404]');
+            } else if (jqXHR.status == 500) {
+                console.log('Internal Server Error [500].');
+            } else if (exception === 'parsererror') {
+                console.log('Requested JSON parse failed.');
+            } else if (exception === 'timeout') {
+                console.log('Time out error.');
+            } else if (exception === 'abort') {
+                console.log('Ajax request aborted.');
+            } else if (jqXHR.status === 403) {
+                console.log('The request cannot be completed because you have exceeded your quota. [403]');
+            } else {
+                console.log('Uncaught Error.\n' + jqXHR.responseText);
+            }
+        }
     });
 
     //Refresh to grid on back browser button.

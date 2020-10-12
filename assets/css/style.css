@@ -367,9 +367,9 @@ textarea.form-input {
 @media (min-width: 992px) {
 
 	.callout {
-		height: 523px;
+		height: 450px;
 		background-image: url("../images/riven.jpg"), url("../images/yi.jpg"), url("../images/backgroundlol.jpg");
-		background-position: left 0 top 228px, right 0 top 287px, center;
+		background-position: left 0 top 153px, right 0 top 214px, center;
 		background-repeat: no-repeat, no-repeat, no-repeat;
 		background-size: 250px, 400px, 100%;
 		margin-bottom: 2rem;
