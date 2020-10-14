@@ -1,10 +1,10 @@
 /*---Font---*/
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
 
 @font-face {
     font-family: 'Aquire';
     src: url('assets/font/aquirelight.eot');
 }
-
 
 /*----Body styling---*/
 
@@ -86,14 +86,14 @@ body {
 	color: #fbbf01;
 	font-size: 4rem;
 	line-height: 0.8;
-	font-family: Aquire, fantasy;
+	font-family: Aquire,'Teko', fantasy;
 	text-decoration: underline;
 }
 
 .blurb {
 	color: #fbbf01;
 	font-size: 1.5rem;
-	font-family: Aquire, fantasy;
+	font-family: Aquire,'Teko', fantasy;
 }
 
 
@@ -255,7 +255,7 @@ body {
 
 .name {
 	color: gold;
-    font-family: Aquire, fantasy;
+    font-family: Aquire,'Teko', fantasy;
 }
 
 #passive-image img,
@@ -389,7 +389,7 @@ textarea.form-input {
 	}
 
 	.champ-name {
-		font-size: 0.7em !important;
+		font-size: 0.52em !important;
 	}
 
 	.item {

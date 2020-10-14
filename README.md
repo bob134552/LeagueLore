@@ -53,7 +53,7 @@ available for that champion. The second page is a contact page where users are a
 or added to the site.
 
 The [Aquire Light font](https://befonts.com/aquire-free-font.html) is used for desktop to make the title more stylish and appeal more to
-the user. If the font is not compatible for the device viewing the site, the font defaults to "fantasy".
+the user. If the font is not compatible for the device viewing the site, the font defaults to "Tote" is used with fantasy as backup.
 
 ## User Stories
 
@@ -119,9 +119,11 @@ The existing features are:
 
 The site was tested on several devices and browsers to ensure responsiveness throughout.
 
+Friends and family were asked to test the site and give feedback on any bugs or possible changes.
+
 Browsers: Chrome, Microsoft Edge and Safari
 
-Devices included: Samsung Galaxy S10+, iPhone X, Samsung Galaxy Tab A, Desktop PC and MacBook Air.
+Devices included: Samsung Galaxy S10+, iPhone X, Samsung Galaxy Tab A, Desktop PC, iPad Pro and MacBook Air.
 
 The custom font "Aquire Light" only works on desktop.
 
@@ -175,21 +177,28 @@ and builds the champions lore and video section.
 
 The code for index.html, contact.html and style.css was beautified using [Code Beautify](https://codebeautify.org/).
 
-In addition, the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and [W3C HTML Validator](https://validator.w3.org/#validate_by_input+with_options) was used to validate the code.
-
-## How the project works
-
+In addition, [jshint](https://jshint.com/), [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and [W3C HTML Validator](https://validator.w3.org/#validate_by_input+with_options) was used to validate and check 
+the code.
 
 # Deployment
 
-The project was deployed through Github pages, from the master branch.
+The project was deployed through Github pages, from the master branch. 
+
+This was done by going to the "Settings" in the repository and scrolling to
+the "GitHub Pages" section. At the "Source" option click the dropdown and select "Master Branch"
+and the site should be published after the page refreshes. 
 
 Additionally the site will be updated after any git push to the master branch.
 
+### Forking the repository.
+
+To fork the repository visit the [GitHub Repository](https://github.com/bob134552/LeagueLore) and above the "Settings" button(next to the star button)
+click the  "Fork" button.
 
 ### How to run code locally.
 
-To run the site locally you can visit [here](https://github.com/bob134552/LeagueLore) and click on the "Code" drop down option, you then copy the HTTPS code provided into a code editor of your choice.
+To run the site locally you can visit [here](https://github.com/bob134552/LeagueLore) and click on the "Code" drop down option,
+you then copy the HTTPS code provided into a code editor of your choice by typing git clone followed by the HTTPS code you copied and pressing Enter.
 
 # Credits
 
@@ -199,6 +208,12 @@ Contents provided from the Riot games API and the Riot games youtube channel.
 
 ## Media
 
-
+- Callout image obtained from google images, filtering by usage rights.
+- Images obtained from Riot API.
+- Youtube videos from the Youtube API.
 
 ## Acknowledgements
+
+- My mentor for feedback throughout the project.
+- My wife for style suggestions and layout help.
+- My parents for help with testing and grammar and spell checking.
