@@ -2,7 +2,7 @@
 
 # League Lore
 
-A website for users to find more information about champions in League of Legends. The site is designed for beginner players 
+A website for users to find more information about champions in League of Legends. The site is designed for beginner and returning players 
 to get basic information on any champion in the game.  There is an option for different languages to allow for a larger variety 
 of users.
 
@@ -14,7 +14,7 @@ A live version of the site can be found [here](https://bob134552.github.io/Leagu
 
 # UX
 
-To make a responsive website that starter League of Legends players can use to view information on champions within the game.
+To make a responsive website that novice and returning League of Legends players can use to view information on champions within the game.
 
 Balsamiq was used to create the following wireframe:
 
@@ -23,7 +23,7 @@ Balsamiq was used to create the following wireframe:
 ## The Strategy Plane
 
 The objective is to create a site with the goal to let new and experienced players of League of Legends be able to view the base information
-on the champions within the game. The immediate requirements are a search bar and language option for non native speakers, a grid to display 
+on the champions within the game. The immediate requirements are a search bar and language option for non-English speakers, a grid to display 
 all current champions within the game and an information page that appears to display information on the selected champion along with a spotlight
 video using the youtube API to search for the video.
 
@@ -35,7 +35,7 @@ and a contact page where users can submit ideas on what else they would like to 
 
 ## The Structure Plane
 
-The layout of the site would be a 2 page site, a champion page and contact page. Through these pages
+The layout of the site would be a 2 page site; a champion page and contact page. Through these pages
 the user will have access to a grid from which they can either use the search bar provide to find champions or
 a particular champion they are looking for. On selection of a champion the grid would be cleared and filled with
 information about the selected champion along with a youtube video of the champions spotlight (if available). 
@@ -47,7 +47,7 @@ The skeleton of the site was designed using Balsamiq and can be found in the lin
 
 ## The Surface Plane
 
-The project is a 2 page site, a main page where the user is presented with a grid to choose a champion or a search bar to search
+The project is a 2 page site; a main page where the user is presented with a grid to choose a champion or a search bar to search
 for a specific champion. While on the main page the user is able to click on the champions displayed and see more information
 available for that champion. The second page is a contact page where users are able to submit future ideas on what could be changed
 or added to the site.
@@ -86,7 +86,7 @@ The existing features are:
 ## Features Left to Implement
 
 - Youtube API search for other languages (search more than english riot games channel).
-- Add in in depth information for champion ability cooldowns and damage.
+- Add in in-depth information for champion ability cooldowns and damage.
 - Add in item builder and rune/ mastery information.
 - Slideshow for each champions available skins.
 - Add in recommended builds for champions.
@@ -109,7 +109,7 @@ The existing features are:
 - [Font Awesome](https://fontawesome.com/)
   - To add icons to navbar.
 - [Youtube API](https://developers.google.com/youtube/v3)
-  - To search youtube videos.
+  - To search Youtube videos.
 - [EmailJS](https://www.emailjs.com/)
   - To link contact page to google email account.
 - [Riot API](https://developer.riotgames.com/docs/lol)
@@ -210,7 +210,7 @@ Contents provided from the Riot games API and the Riot games youtube channel.
 
 - Callout image obtained from google images, filtering by usage rights.
 - Images obtained from Riot API.
-- Youtube videos from the Youtube API.
+- Videos from the Youtube API.
 
 ## Acknowledgements
 
