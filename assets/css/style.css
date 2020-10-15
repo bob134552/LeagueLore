@@ -184,6 +184,7 @@ body {
 	margin-left: 4px;
 	display: inline-block;
 	position: relative;
+    cursor: pointer;
 }
 
 .item .champ-name {
@@ -362,6 +363,10 @@ textarea.form-input {
 		display: block;
 	}
     
+    .champ-name {
+		font-size: 0.7em !important;
+	}
+
 }
 
 @media (min-width: 992px) {

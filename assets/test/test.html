@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+	<title>Jasmine Testing</title>
+
+	<!-- Load Jasmine Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine.min.css"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine-html.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/boot.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js">
+    </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jasmine-jquery@2.1.1/lib/jasmine-jquery.min.js"></script>
+	
+    <!--Load Scripts--> 
+    <script type="text/javascript" src="assets/js/grid.js"></script>
+    <script type="text/javascript" src="assets/js/champLore.js"></script> 
+    
+    <!--Tests here-->
+    <script>
+    //Set up HTML for DOM event tests.
+    function setUpHTMLFixture() {
+        setFixtures('<div class="callout-text></div><select name="dropdown" id="dropdown"><option value="en_GB" id="default">English</option><option value="zh_CN">Chinese (China)</option><option value="zh_MY">Chinese (Malaysia)</option><option value="zh_TW">Chinese (Taiwan)</option><option value="cs_CZ">Czech</option><option value="fr_FR">French</option><option value="de_DE">German</option><option value="el_GR">Greek</option><option value="hu_HU">Hungarian</option><option value="id_ID">Indonesian</option><option value="it_IT">Italian</option><option value="ja_JP">Japanese</option><option value="ko_KR">Korean</option><option value="pl_PL">Polish</option><option value="pt_BR">Portuguese</option><option value="ro_RO">Romanian</option><option value="ru_RU">Russian</option><option value="es_ES">Spanish</option><option value="th_TH">Thai</option><option value="tr_TR">Turkish</option><option value="vn_VN">Vietnamese</option></select>'
+        + '<form onsubmit="getChampions(searchChamp);return false" autocomplete="off"><input class="champ-search" id="champ-search" type="text" placeholder="Enter Champion Name" required/><button type="submit" class="mag"><i class="fas fa-search"></i></button></form><p class="results text-center"></p>'
+        + '<section class="champions"><div id="champ-grid" class="champ-grid"></section>'
+        + '<div class="btn button prev disabled">&lt;&lt;&lt;</div><div class="page text-white"><span class="page-num">1</span></div><div class="btn button next">&gt;&gt;&gt;</div>'
+        + '<section class="container" id="lore-page"></section>' 
+        + '<section class="container" id="video"></section>'
+        )
+    };
+    
+    describe("DOM Tests", function() {
+        describe("Click event tests", function() {
+        var spyEvent;
+
+            beforeEach(async function() {
+                setUpHTMLFixture();
+            });
+
+            it("Should invoke the champPage() function for Ahri when clicked.",async function() {
+                spyEvent = spyOnEvent('img#Ahri', 'click');
+                $('img#Ahri').trigger("click");
+
+                expect('click').toHaveBeenTriggeredOn('img#Ahri');
+                expect(spyEvent).toHaveBeenTriggered();
+            });
+        });
+    });
+    </script>
+
+
+</head>
+
+</html>

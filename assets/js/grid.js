@@ -156,9 +156,9 @@ function searchChamp(champions) {
 }
 
 //Removes active class from non relevant names.
-function removeActive(x) {
-    for (i = 0; i < x.length; i++) {
-        x[i].classList.remove("autocomplete-active");
+function removeActive(items) {
+    for (i = 0; i < items.length; i++) {
+        items[i].classList.remove("autocomplete-active");
     }
 }
 
@@ -198,35 +198,35 @@ function autocomplete(championNames) {
 
     //Removes div elements when they don't match input or dont match drop down.
     function closeAllLists(elmnt) {
-        let x = document.getElementsByClassName("autocomplete-items");
-        for (i = 0; i < x.length; i++) {
-            if (elmnt != x[i] && elmnt != inputElement) {
-                x[i].parentNode.removeChild(x[i]);
+        let items = document.getElementsByClassName("autocomplete-items");
+        for (i = 0; i < items.length; i++) {
+            if (elmnt != items[i] && elmnt != inputElement) {
+                items[i].parentNode.removeChild(items[i]);
             }
         }
     }
 
     //Add active class to relevant names.
-    function addActive(x) {
-        if (!x) return false;
-        removeActive(x);
-        if (currentFocus >= x.length) currentFocus = 0;
-        if (currentFocus < 0) currentFocus = (x.length - 1);
-        x[currentFocus].classList.add("autocomplete-active");
+    function addActive(items) {
+        if (!items) return false;
+        removeActive(items);
+        if (currentFocus >= items.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (items.length - 1);
+        items[currentFocus].classList.add("autocomplete-active");
     }
 
     //Scroll up and down list.
     inputElement.addEventListener("keydown", function(e) {
-        let x = document.getElementById(this.id + "autocomplete-list");
-        if (x) x = x.getElementsByTagName("div");
+        let items = document.getElementById(this.id + "autocomplete-list");
+        if (items) items = items.getElementsByTagName("div");
         if (e.keyCode == 40) { //down key press
             currentFocus++;
-            addActive(x);
+            addActive(items);
         } else if (e.keyCode == 38) { //up key press
             currentFocus--;
-            addActive(x);
+            addActive(items);
         } else if (currentFocus > -1) {
-            if (x) x[currentFocus].click();
+            if (items) items[currentFocus].click();
         }
     });
 

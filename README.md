@@ -1,6 +1,6 @@
 **Milestone Project 2: Interactive Frontend Development - Code Institute**
 
-# League Lore.
+# League Lore
 
 A website for users to find more information about champions in League of Legends. The site is designed for beginner players 
 to get basic information on any champion in the game.  There is an option for different languages to allow for a larger variety 
@@ -53,7 +53,7 @@ available for that champion. The second page is a contact page where users are a
 or added to the site.
 
 The [Aquire Light font](https://befonts.com/aquire-free-font.html) is used for desktop to make the title more stylish and appeal more to
-the user. If the font is not compatible for the device viewing the site, the font defaults to "Tote" is used with fantasy as backup.
+the user. If the font is not compatible for the device viewing the site, the font defaults to "Teko" is used with fantasy as backup.
 
 ## User Stories
 
