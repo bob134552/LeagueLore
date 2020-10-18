@@ -127,9 +127,55 @@ Devices included: Samsung Galaxy S10+, iPhone X, Samsung Galaxy Tab A, Desktop P
 
 The custom font "Aquire Light" only works on desktop.
 
-## Testing based on user stories:
+## Manual testing of elements on each page.
 
-## As a user, I want to be able to search for a specific champion or a champion that looks interesting.
+### Home page:
+
+#### Navigation bar
+
+1. Clicking on the site icon returns user to home page or resets grid if there is currently lore being displayed on a champion.
+2. Clicking on the home icon acts the same as the site icon.
+3. Clicking on the email icon takes the user to the contact page.
+
+#### Language and Search bar
+
+1. The default language is set to English.
+2. Clicking on the dropdown allows the user to select a different language.
+3. When new language is selected the grid is reloaded to match with the new language.
+    - Refreshing the page or returning to the site remembers the new language if it was selected.
+    - Newly selected language is displayed in the dropdown on refresh or return to site.
+4. Searching for a champion shows autocomplete that contains all champions that begin with the text the user has input.
+    - The more the champions name is fully written the less names are shown for auto complete.
+    - Hitting enter builds the lore for the champions name that matches in alphabetical order (Anivia would be priority before Annie if search was just "An").
+    - Clearing the input field removes the autocomplete elements.
+
+#### Champion grid
+
+1. Clicking on a icon builds the lore for selected champion.
+2. On release of new champion to the game that champions icon is added to the grid.
+3. On mobile and tablet the grid is reduced to showing 20 champions per page with pagination buttons at the bottom of the page.
+
+#### Youtube Video
+
+1. Video is available if Youtube API quota hasn't been met.
+2. Video scales with window size.
+
+### Contact page:
+
+#### Navigation bar
+
+1. Clicking on the site icon returns user to home page or resets grid if there is currently lore being displayed on a champion.
+2. Clicking on the home icon acts the same as the site icon.
+3. Clicking on the email icon takes the user to the contact page.
+
+#### Email form
+
+1. Leaving either name, email or the text section blank notifies user that the missing box is required.
+2. After sending an email the form is cleared, the send button notifies the user their message has been sent and becomes unable to be clicked.
+
+## Testing based on user stories.
+
+### As a user, I want to be able to search for a specific champion or a champion that looks interesting.
 
 1. Filling in search bar brings up an autocomplete dropdown underneath the search bar to help narrow down a search, hitting enter fades the grid 
 and builds the champions lore and video section.
@@ -142,7 +188,7 @@ and builds the champions lore and video section.
     1. Previous button is disabled on first page.
     2. Clicking on next button moves to next 20 champions until there are no more champions to display then next button becomes disabled.
 
-## As a user, I want to be able to change language if I'm not a native English speaker.
+### As a user, I want to be able to change language if I'm not a native English speaker.
 
 1. Clicking on the dropdown next to the search bar brings up a list of available language options with English as default.
     1. Changing the language rebuilds the grid to display names in selected language.
@@ -150,13 +196,13 @@ and builds the champions lore and video section.
     3. Clicking on a champion builds the champions lore in the selected language.
         - Returning from the lore to grid remembers the selected language.
 
-## As a user, I want to be able to voice my options on changes that could be made to make the site more appealing in the future.
+### As a user, I want to be able to voice my options on changes that could be made to make the site more appealing in the future.
 
 1. Leaving either name, email or idea box empty notifies user that they are required to be able to send.
 2. After submitting form user is notified that email has been sent as the send button becomes disabled and text changes to notify user that the email has been sent.
 3. After submitting the form is cleared.
 
-## As a user, I want the grid to be compact in mobile and tablet view to prevent having a large page.
+### As a user, I want the grid to be compact in mobile and tablet view to prevent having a large page.
 
 1. Resizing screen to tablet size sets the amount of items to be displayed to 20 and adds in pagination buttons to move through available champions.
 
@@ -195,12 +241,19 @@ Additionally the site will be updated after any git push to the master branch.
 To fork the repository visit the [GitHub Repository](https://github.com/bob134552/LeagueLore) and above the "Settings" button(next to the star button)
 click the  "Fork" button.
 
-### How to run code locally.
+### How to clone the repo.
 
 To run the site locally you can visit [here](https://github.com/bob134552/LeagueLore) and click on the "Code" drop down option,
 you then copy the HTTPS code provided into a code editor of your choice by typing git clone followed by the HTTPS code you copied and pressing Enter.
 
+Further information on cloning can be found on [GitHub docs](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+
 # Credits
+
+## Code
+
+- Javascript code for autocomplete was originally taken from [W3Schools](https://www.w3schools.com/howto/howto_js_autocomplete.asp) example and edited.
+
 
 ## Content
 
