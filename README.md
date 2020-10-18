@@ -219,6 +219,10 @@ and builds the champions lore and video section.
     - Once quota for Youtube API requests is reached, a 403 error is thrown.
         - Added error function to ajax request for when 403 error is shown.
 
+- Some champions don't have a champion spotlight.
+    - In the case of some champions (Alistar and other older champions), there is no spotlight video available.
+    - If there is no avialable spotlight video there is no video displayed as previously the wrong spotlight was displayed.
+
 ## Validaton and Beautify
 
 The code for index.html, contact.html and style.css was beautified using [Code Beautify](https://codebeautify.org/).

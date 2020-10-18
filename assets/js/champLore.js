@@ -22,88 +22,90 @@ function champPage(champId, champName) {
 
                     //Build up html for clicked on champion and then fade in.
                     $("#lore-page")
-                        .html(
-                            `
-               <h1 class="text-center name">${champName},<br><span style="text-transform: capitalize;">${
-                            champion.title
-                            }</span>
-               </h1>
-            <img class = "splash" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg" alt="${champName}">
-            <div class = "row">
-            <div class = "col-12">
-            <br>
-            <p><span class="stat-title">Role:</span><br> ${champion.tags.join(", ")}</p>
-            <p class="stat-title">Stats:
-            <br></p>
-            <div class="stats-bar" style="width: ${
-                            champion.info.attack
-                            }0%; background: red;">
-            <span id="attackbar"> ATK: ${champion.info.attack}/10</span>
-            </div>
-            <div class="stats-bar" style="width: ${
-                            champion.info.defense
-                            }0%; background: green;">
-            <span id="defensebar"> DEF: ${champion.info.defense}/10</span>
-            </div>
-            <div class="stats-bar" style="width: ${
-                            champion.info.magic
-                            }0%; background: blue;">
-            <span id="magicbar"> MAG: ${champion.info.magic}/10</span>
-            </div>
-            <div class="stats-bar" style="width: ${
-                            champion.info.difficulty
-                            }0%; background: purple;">
-            <span id="difficultybar"> DIF: ${
-                            champion.info.difficulty
-                            }/10</span>
-            </div>
-            <br>
-            <p class="stat-title">Lore:</p>
-            <br><p>${champion.lore}</p>
-            <p>Tips when playing ${champName}:
-            <br>
-            ${champion.allytips.join("<br>")}
-            <br><br>
-            Tips when playing against ${champName}:
-            <br>
-            ${champion.enemytips.join("<br>")}
-            </p>
-            <br>
-            <p class="stat-title">Abilities:</p>
-            </div>
-            </div>
+                        .html(`
+                        <h1 class="text-center name">${champName},<br>
+                            <span style="text-transform: capitalize;">${champion.title}</span>
+                        </h1>
+                        <img class = "splash" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg" alt="${champName}">
+                        
+                        <div class = "row">
+                            <div class = "col-12">
+                                <br>
+                                <p><span class="stat-title">Role:</span><br> ${champion.tags.join(", ")}</p>
+                                <p class="stat-title">Stats:<br></p>
+                                    <div class="stats-bar" style="width: ${champion.info.attack}0%; background: red;">
+                                        <span id="attackbar"> ATK: ${champion.info.attack}/10</span>
+                                    </div>
+                                    <div class="stats-bar" style="width: ${champion.info.defense}0%; background: green;">
+                                        <span id="defensebar"> DEF: ${champion.info.defense}/10</span>
+                                    </div>
+                                    <div class="stats-bar" style="width: ${champion.info.magic}0%; background: blue;">
+                                        <span id="magicbar"> MAG: ${champion.info.magic}/10</span>
+                                    </div>
+                                    <div class="stats-bar" style="width: ${champion.info.difficulty}0%; background: purple;">
+                                        <span id="difficultybar"> DIF: ${champion.info.difficulty}/10</span>
+                                    </div>
+                                    <br>
+                                    <p class="stat-title">Lore:</p>
+                                    <br>
+                                    <p>${champion.lore}</p>
+                                    <p>Tips when playing ${champName}:
+                                        <br>
+                                        ${champion.allytips.join("<br>")}
+                                        <br>
+                                        <br>
+                                        Tips when playing against ${champName}:
+                                        <br>
+                                        ${champion.enemytips.join("<br>")}
+                                    </p>
+                                    <br>
+                                    <p class="stat-title">Abilities:</p>
+                                </div>
+                            </div>
 
-            <div class = "container">
-            <div class = "row">
-            <div class = "col-xs-12 ml-2" id = "passive-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
-                            patch[0]
-                            }/img/passive/${champion.passive.image.full}" alt="${champName} passive"><p id = "passive"><strong>${champion.passive.name}</strong><br>${
-                            champion.passive.description
-                            }</p></div><br>
-            <div class = "col-xs-12 ml-2" id = "q-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
-                            patch[0]
-                            }/img/spell/${abilityQ.image.full}" alt="${champName} q"><p id = "q-ability"><strong>${
-                            abilityQ.name
-                            }</strong><br>${abilityQ.description}</p></div><br>
-            <div class = "col-xs-12 ml-2" id = "w-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
-                            patch[0]
-                            }/img/spell/${abilityW.image.full}" alt="${champName} w"><p id = "w-ability"><strong>${
-                            abilityW.name
-                            }</strong><br>${abilityW.description}</p></div><br>
-            <div class = "col-xs-12 ml-2" id = "e-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
-                            patch[0]
-                            }/img/spell/${abilityE.image.full}" alt="${champName} e"><p id = "e-ability"><strong>${
-                            abilityE.name
-                            }</strong><br>${abilityE.description}</p></div><br>
-            <div class = "col-xs-12 ml-2" id = "r-ability-image"><img src = "http://ddragon.leagueoflegends.com/cdn/${
-                            patch[0]
-                            }/img/spell/${abilityR.image.full}" alt="${champName} r"><p id = "r-ability"><strong>${
-                            abilityR.name
-                            }</strong><br>${abilityR.description}</p></div>
-            <br>
-            </div>
-            `
-                        )
+                        <div class = "container">
+                            <div class = "row">
+                                <div class = "col-xs-12 ml-2" id = "passive-image">
+                                    <img src = "http://ddragon.leagueoflegends.com/cdn/${patch[0]}/img/passive/${champion.passive.image.full}" alt="${champName} passive">
+                                    <p id = "passive">
+                                        <strong>${champion.passive.name}</strong>
+                                        <br>${champion.passive.description}
+                                    </p>
+                                </div>
+                                <br>
+                                <div class = "col-xs-12 ml-2" id = "q-ability-image">
+                                    <img src = "http://ddragon.leagueoflegends.com/cdn/${patch[0]}/img/spell/${abilityQ.image.full}" alt="${champName} q">
+                                    <p id = "q-ability">
+                                        <strong>${abilityQ.name}</strong>
+                                        <br>${abilityQ.description}
+                                    </p>
+                                </div>
+                                <br>
+                                <div class = "col-xs-12 ml-2" id = "w-ability-image">
+                                    <img src = "http://ddragon.leagueoflegends.com/cdn/${patch[0]}/img/spell/${abilityW.image.full}" alt="${champName} w">
+                                    <p id = "w-ability">
+                                        <strong>${abilityW.name}</strong>
+                                        <br>${abilityW.description}
+                                    </p>
+                                </div>
+                                <br>
+                                <div class = "col-xs-12 ml-2" id = "e-ability-image">
+                                    <img src = "http://ddragon.leagueoflegends.com/cdn/${patch[0]}/img/spell/${abilityE.image.full}" alt="${champName} e">
+                                    <p id = "e-ability">
+                                        <strong>${abilityE.name}</strong>
+                                        <br>${abilityE.description}
+                                    </p>
+                                </div>
+                                br>
+                                <div class = "col-xs-12 ml-2" id = "r-ability-image">
+                                    <img src = "http://ddragon.leagueoflegends.com/cdn/${patch[0]}/img/spell/${abilityR.image.full}" alt="${champName} r">
+                                    <p id = "r-ability">
+                                        <strong>${abilityR.name}</strong>
+                                        <br>${abilityR.description}
+                                    </p>
+                                </div>
+                                <br>
+                            </div>`)
                         .fadeIn();
                 },
             });
@@ -130,7 +132,6 @@ function champPage(champId, champName) {
         url: baseUrl,
         data: options,
         success: function (videoData) {
-            console.log(videoData.items);
 
             //Check that video retrieved contains the champions name to avoid using wrong video.
             let videoUrl = videoData.items[0].id.videoId;
@@ -139,11 +140,17 @@ function champPage(champId, champName) {
                 $("#video")
                     .html(
                         `<div class="container">
-                        <div class="text-center stat-title"><h2><u>${champName} Champion Spotlight</u></h2></div><br>
-                        <div class='embed-container'><iframe src='https://www.youtube.com/embed/${videoUrl}' frameborder='0' allowfullscreen></iframe></div>
+                            <div class="text-center stat-title">
+                                <h2>
+                                    <u>${champName} Champion Spotlight</u>
+                                </h2>
+                            </div>
+                            <br>
+                            <div class='embed-container'>
+                                <iframe src='https://www.youtube.com/embed/${videoUrl}' frameborder='0' allowfullscreen></iframe>
+                            </div>
                         </div>
-                        `
-                    )
+                        `)
                     .fadeIn();
             }
         },
