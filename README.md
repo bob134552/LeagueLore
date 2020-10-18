@@ -257,6 +257,7 @@ Further information on cloning can be found on [GitHub docs](https://docs.github
 ## Code
 
 - Javascript code for autocomplete was originally taken from [W3Schools](https://www.w3schools.com/howto/howto_js_autocomplete.asp) example and edited.
+- Error handling for youtube error taken from [Stackoverflow](https://stackoverflow.com/questions/6792878/jquery-ajax-error-function) and adjusted to send the error message to the console log.
 
 
 ## Content
