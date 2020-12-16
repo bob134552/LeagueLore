@@ -96,7 +96,6 @@ function champPage(champId, champName) {
                                         <br>${abilityE.description}
                                     </p>
                                 </div>
-                                br>
                                 <div class = "col-xs-12 ml-2" id = "r-ability-image">
                                     <img src = "http://ddragon.leagueoflegends.com/cdn/${patch[0]}/img/spell/${abilityR.image.full}" alt="${champName} r">
                                     <p id = "r-ability">
